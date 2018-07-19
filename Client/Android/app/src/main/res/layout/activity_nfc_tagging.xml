@@ -20,15 +20,22 @@
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
             android:contentDescription="@string/nfcIconDescription"
-            />
+            app:srcCompat="@drawable/nfc" />
 
         <Button
             android:id="@+id/cancelBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0"
             android:gravity="center_horizontal"
             android:text="@android:string/cancel" />
+
+        <Button
+            android:id="@+id/qrModeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:text="@string/qrMode" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

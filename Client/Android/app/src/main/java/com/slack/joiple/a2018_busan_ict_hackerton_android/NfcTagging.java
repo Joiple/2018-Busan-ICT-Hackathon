@@ -8,12 +8,13 @@ import android.widget.Button;
 
 public class NfcTagging extends AppCompatActivity {
     private Intent cardService;
-    private Button cancelBtn;
+    private Button cancelBtn,qrModeBtn;
     @Override
     protected void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_nfc_tagging);
         cancelBtn=findViewById(R.id.cancelBtn);
+        qrModeBtn=findViewById(R.id.qrModeBtn);
         cardService=new Intent(this,NfcService.class);
         startService(cardService);
         cancelBtn.setOnClickListener(new View.OnClickListener() {
@@ -22,7 +23,12 @@ public class NfcTagging extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
+        qrModeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
     }
     @Override
     protected void onDestroy() {

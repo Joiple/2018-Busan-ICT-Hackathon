@@ -14,7 +14,7 @@ import com.google.zxing.integration.android.IntentResult;
 
 public class QrReader extends AppCompatActivity {
     //view Objects
-    private Button rescanBtn,sendBtn, nfcBtn;
+    private Button rescanBtn,sendBtn, nfcBtn,cancelBtn;
     private TextView infoText;
     private String value;
     //qr code scanner object
@@ -28,6 +28,7 @@ public class QrReader extends AppCompatActivity {
         sendBtn=findViewById(R.id.sendBtn);
         nfcBtn =findViewById(R.id.nfcModeBtn);
         infoText=findViewById(R.id.infoView);
+        cancelBtn=findViewById(R.id.cancelBtn);
         //intializing scan object
         qrScan = new IntentIntegrator(this);
         //button onClick
@@ -48,6 +49,12 @@ public class QrReader extends AppCompatActivity {
             public void onClick(View v) {
                 //qrScan.setOrientationLocked(false);
                 qrScan.initiateScan();
+            }
+        });
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
             }
         });
         qrScan.setPrompt(getString(R.string.scanning));

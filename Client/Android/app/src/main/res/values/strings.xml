@@ -3,6 +3,7 @@
     <string name="nfcIconDescription">Icon_NFC</string>
     <string name="rescan">Rescan</string>
     <string name="nfcMode">NFC Mode</string>
+    <string name="qrMode">QR code Mode</string>
     <string name="send">Send</string>
     <string name="info">Information</string>
     <string name="scanning">point at QR code</string>
