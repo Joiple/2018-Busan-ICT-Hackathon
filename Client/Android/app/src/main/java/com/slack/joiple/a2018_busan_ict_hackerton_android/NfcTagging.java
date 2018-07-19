@@ -26,7 +26,9 @@ public class NfcTagging extends AppCompatActivity {
         qrModeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                Intent i=new Intent(NfcTagging.this,QrReader.class);
+                startActivity(i);
+                NfcTagging.this.finish();
             }
         });
     }

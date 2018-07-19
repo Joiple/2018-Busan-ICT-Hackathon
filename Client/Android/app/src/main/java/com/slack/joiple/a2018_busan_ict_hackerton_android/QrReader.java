@@ -42,7 +42,9 @@ public class QrReader extends AppCompatActivity {
         nfcBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO switch to NFC activity
+                Intent i=new Intent(QrReader.this,NfcTagging.class);
+                startActivity(i);
+                QrReader.this.finish();
             }
         });
         rescanBtn.setOnClickListener(new View.OnClickListener() {
