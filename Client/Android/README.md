@@ -7,3 +7,8 @@ first loading activity when application launched
 service that communicates with NFC
 ### NfcTagging-Activity
 activity that using NfcService
+### QrReader-Activity
+activity for scan and post to server with QR code
+
+##Used external libraries
+Zxing Library for QR code scanning
