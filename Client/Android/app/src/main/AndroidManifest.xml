@@ -22,6 +22,34 @@
         <activity android:name=".NfcTagging">
 		
         </activity>
+		<activity android:name=".AttendanceView">
+
+		</activity>
+		<activity android:name=".ChangeCompany">
+
+		</activity>
+
+		<activity android:name=".MainActivity">
+
+		</activity>
+
+		<activity android:name=".Option">
+
+		</activity>
+
+		<activity android:name=".Profile">
+
+		</activity>
+		<activity android:name=".SignIn">
+
+		</activity>
+		<activity android:name=".SignUp">
+
+		</activity>
+		<activity android:name=".SpecView">
+
+		</activity>
+
 		<service android:name=".NfcService"
 			android:exported="true"
 			android:permission="android.permission.Bind_NFC_SERVICE">
