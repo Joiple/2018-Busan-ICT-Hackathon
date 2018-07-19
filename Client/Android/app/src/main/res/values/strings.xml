@@ -1,7 +1,4 @@
 <resources>
     <string name="app_name">2018-Busan-ICT-Hackerton-Android</string>
 
-    <string name="title_activity_nfc_tagging">nfcTagging</string>
-    <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">DUMMY\nCONTENT</string>
 </resources>
