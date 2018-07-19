@@ -7,6 +7,6 @@ public class ChangeCompany extends AppCompatActivity {
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
-        this.setContentView(R.layout.activity_initial);
+        this.setContentView(R.layout.activity_change_company);
     }
 }
