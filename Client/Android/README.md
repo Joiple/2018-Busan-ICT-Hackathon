@@ -1,6 +1,6 @@
-#Part of Android
-Client code for Android application
-
-##activity/class info
-###Initial-Activity
-first loading activity when application launched
+#Part of Android<br>
+Client code for Android application<br>
+<br>
+##activity/class info<br>
+###Initial-Activity<br>
+first loading activity when application launched<br>
