@@ -24,7 +24,8 @@ public class NfcService extends HostApduService {
     @Override
     public byte[] processCommandApdu(byte[] bytes, Bundle bundle) {
         if (Arrays.equals(SELECT_APDU, bytes)) {
-            Log.i(NFC, "nfc touched");
+            Log.i(NFC, "nfc connected");
+            //TODO return value is sending value;
             return SELECT_OK_SW;
         } else {
             return UNKNOWN_CMD_SW;
@@ -52,6 +53,6 @@ public class NfcService extends HostApduService {
 
     @Override
     public void onDeactivated(int i) {
-        Log.i(NFC,"Deactiviated"+i);
+        Log.i(NFC,"Deactivated"+i);
     }
 }
