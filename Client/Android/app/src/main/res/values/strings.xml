@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">2018-Busan-ICT-Hackerton-Android</string>
-    <string name="AID">F222222222</string>
+    <string name="nfcIconDescription">Icon_NFC</string>
 </resources>

@@ -8,7 +8,7 @@ import android.util.Log;
 import java.util.Arrays;
 
 public class NfcService extends HostApduService {
-    private  final String SAMPLE_LOYALTY_CARD_AID = new NfcService().getString(R.string.AID);
+    private  final String SAMPLE_LOYALTY_CARD_AID = "F222222222";
     private  final String SELECT_APDU_HEADER = "00A40400";
     private  final byte[] SELECT_APDU = BuildSelectApdu(SAMPLE_LOYALTY_CARD_AID);
     private  final String NFC = "NFC";
