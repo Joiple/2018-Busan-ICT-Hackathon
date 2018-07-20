@@ -8,13 +8,14 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class SignUp extends AppCompatActivity {
-    Intent i;
+    Intent o,g;
     EditText idEdit,passEdit,nameEdit,ageEdit;
     Button cancelBtn,signUpBtn;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_sign_up);
+        g=getIntent();
         idEdit=findViewById(R.id.idEdit);
         passEdit=findViewById(R.id.passEdit);
         nameEdit=findViewById(R.id.nameEdit);

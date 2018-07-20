@@ -14,11 +14,12 @@ public class SignIn extends AppCompatActivity {
     EditText idEdit,passEdit;
     TextView msgView;
     Button signIn,signUp;
-    Intent i;
+    Intent o,g;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_sign_in);
+        g=getIntent();
         idEdit=findViewById(R.id.idEdit);
         passEdit=findViewById(R.id.passEdit);
         msgView=findViewById(R.id.msg);
@@ -27,8 +28,8 @@ public class SignIn extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                i=new Intent(SignIn.this,SignUp.class);
-                startActivity(i);
+                o=new Intent(SignIn.this,SignUp.class);
+                startActivity(o);
             }
         });
         signIn.setOnClickListener(new View.OnClickListener() {
@@ -39,8 +40,8 @@ public class SignIn extends AppCompatActivity {
                 //TODO get login result
                 if(true){//login result
                     //TODO save ID/password
-                    i=new Intent(SignIn.this,MainActivity.class);
-                    startActivity(i);
+                    o=new Intent(SignIn.this,MainActivity.class);
+                    startActivity(o);
                     finish();
                 }else{
                     TransitionManager.beginDelayedTransition((ViewGroup)findViewById(R.id.textLayout));

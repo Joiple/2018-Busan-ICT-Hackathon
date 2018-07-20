@@ -5,17 +5,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 public class Initial extends AppCompatActivity {
-    Intent i;
+    Intent o;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_initial);
         if(true){//TODO user information check result->true : information exist
-            i=new Intent(Initial.this,MainActivity.class);
-            startActivity(i);
+            o=new Intent(Initial.this,MainActivity.class);
+            startActivity(o);
         }else{
-            i=new Intent(Initial.this,SignIn.class);
-            startActivity(i);
+            o=new Intent(Initial.this,SignIn.class);
+            startActivity(o);
         }
 
         finish();

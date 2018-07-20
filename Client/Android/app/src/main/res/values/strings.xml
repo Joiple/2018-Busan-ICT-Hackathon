@@ -13,4 +13,15 @@
     <string name="name">Name</string>
     <string name="age">Age</string>
     <string name="password">Password</string>
+    <string name="option">Option</string>
+    <string name="registerCompany">Register Company</string>
+    <string name="changeCompany">Change Company</string>
+    <string name="startWork">Start Work</string>
+    <string name="endWork">End Work</string>
+    <string name="details">Details...</string>
+    <string name="changeCompanyTooltip">Input company code to join</string>
+    <string name="code">code</string>
+    <string name="unavailableComp">code is unavailable</string>
+    <string name="logout">Logout</string>
+    <string name="MainRead">Way of work</string>
 </resources>
