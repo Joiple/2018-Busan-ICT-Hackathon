@@ -1,31 +1,44 @@
-from flask import Flask
-import com
+from flask import Flask, request, redirect, url_for, jsonify
+import mysql
 import qrcode, hashlib, random
 
 app = Flask(__name__)
-a = [a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,x,y,z]
-arr = []
+ranarr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','x','y','z']
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
+db = mysql.sql()
 
+@app.route('/signin', methods = ['POST','GET'])
+def sign_in():
+    print(request.form['name'])
+    info = {'name' : request.form['name'],
+            'birthday' : request.form['birthday'], # 형식 0000-00-00
+            'phone_number' : request.form['phone_number'],
+            'email' : request.form['email'],
+            'company' : request.form['company'],
+            'wage' : request.form['wage']}
+    db.sign_in(info)
+    return 'suc'
 
-@app.route('/get')
-def get_naver():
-    return com.ge()
+@app.route('/login', methods = ['POST', 'GET'])
+def login():
+   if request.method == 'POST':
+      user = request.form['myName']
+      print(user)
+      return f'suc {user}'
+   else:
+      user = request.args.get('myName')
+      return 'suc'
 
-@app.route('/qr')
-def qr():
-    for i in range(5:)
-        ran = random.randint(0,24)
-        arr.append(a[ran])
-
-    sha = hashlib.new('sha')
-
-    sha.update(str(ran).encode('utf-8'))
-    img = qrcode.make(sha.hexdigest())
-    img.save(f"{sha}.png")
+@app.route('/code') # 출퇴근 랜덤 코드 생성
+def code():
+    arr = ''
+    for i in range(5):
+        ran = random.randint(0,32)
+        if ran <= 23:
+            arr += ranarr[ran]
+        else:
+            arr += str(ran - 23)
+    return arr
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug = True)
