@@ -7,4 +7,10 @@
     <string name="send">Send</string>
     <string name="info">Information</string>
     <string name="scanning">point at QR code</string>
+    <string name="signIn">sign in</string>
+    <string name="signUp">sign up</string>
+    <string name="id">ID</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="password">Password</string>
 </resources>
