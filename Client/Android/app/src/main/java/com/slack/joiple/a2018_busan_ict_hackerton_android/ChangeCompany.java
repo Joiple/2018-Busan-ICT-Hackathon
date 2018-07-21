@@ -1,6 +1,7 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,6 +15,7 @@ public class ChangeCompany extends AppCompatActivity {
     EditText compEdit;
     Button submit,cancel;
     TextView result;
+    SharedPreferences pref;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
@@ -22,6 +24,7 @@ public class ChangeCompany extends AppCompatActivity {
         submit=findViewById(R.id.sendBtn);
         result=findViewById(R.id.resultView);
         cancel=findViewById(R.id.cancelBtn);
+        pref=getSharedPreferences("user",MODE_PRIVATE);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
