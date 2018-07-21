@@ -23,5 +23,8 @@
     <string name="code">code</string>
     <string name="unavailableComp">code is unavailable</string>
     <string name="logout">Logout</string>
-    <string name="MainRead">Way of work</string>
+    <string name="mainRead">Way of work</string>
+    <string name="profile">Profile</string>
+    <string name="records">Work record</string>
+    <string name="specs">Specs</string>
 </resources>
