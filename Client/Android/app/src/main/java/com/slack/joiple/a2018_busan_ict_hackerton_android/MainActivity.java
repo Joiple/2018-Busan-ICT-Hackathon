@@ -1,6 +1,7 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,8 +10,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Intent o,g;
-    Button register,start,end,option,profile;
+    Button register,start,end,option,profile,recordDetail;
     TextView company;
+    SharedPreferences pref;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
@@ -22,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         profile=findViewById(R.id.profileBtn);
         option=findViewById(R.id.optionBtn);
         company=findViewById(R.id.companyView);
+        recordDetail=findViewById(R.id.recordBtn);
+        pref=getSharedPreferences("user",MODE_PRIVATE);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,13 +38,12 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(true){//TODO get setting of main -true : qr
                     o=new Intent(MainActivity.this,QrReader.class);
-
+                    o.setAction("start");
                 }else{
                     o=new Intent(MainActivity.this,NfcTagging.class);
+                    o.setAction("start");
                 }
-                //TODO add event params
                 startActivity(o);
-                finish();
             }
         });
         end.setOnClickListener(new View.OnClickListener() {
@@ -48,12 +51,20 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(true){//TODO get setting of main -true : qr
                     o=new Intent(MainActivity.this,QrReader.class);
+                    o.setAction("end");
                 }else{
                     o=new Intent(MainActivity.this,NfcTagging.class);
+                    o.setAction("end");
                 }
                 //TODO add event params
                 startActivity(o);
-                finish();
+            }
+        });
+        recordDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(MainActivity.this,AttendanceView.class);
+                startActivity(o);
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 o=new Intent(MainActivity.this,Option.class);
-                startActivity(o);
+                startActivityForResult(o,0);
             }
         });
     }
@@ -81,6 +92,8 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }else if(action.equals("changeComp")){
             company.setText("");//TODO get company name from sharedPreferences
+        }else if(action.equals("end")){
+
         }
     }
 }

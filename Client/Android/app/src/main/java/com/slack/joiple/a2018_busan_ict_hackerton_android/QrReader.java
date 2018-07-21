@@ -19,11 +19,12 @@ public class QrReader extends AppCompatActivity {
     private String value;
     //qr code scanner object
     private IntentIntegrator qrScan;
-
+    private Intent g;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_reader);
+        g=getIntent();
         rescanBtn=findViewById(R.id.rescanBtn);
         sendBtn=findViewById(R.id.sendBtn);
         nfcBtn =findViewById(R.id.nfcModeBtn);
@@ -43,14 +44,16 @@ public class QrReader extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(QrReader.this,NfcTagging.class);
+                i.setAction(g.getAction());
                 startActivity(i);
                 QrReader.this.finish();
             }
         });
         rescanBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                //qrScan.setOrientationLocked(false);
+                qrScan.setOrientationLocked(false);
                 qrScan.initiateScan();
+
             }
         });
         cancelBtn.setOnClickListener(new View.OnClickListener() {
@@ -63,6 +66,11 @@ public class QrReader extends AppCompatActivity {
         qrScan.initiateScan();
     }
 
+    @Override
+    public void onBackPressed(){
+        setResult(RESULT_CANCELED);
+        super.onBackPressed();
+    }
     //Getting the scan results
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -70,11 +78,17 @@ public class QrReader extends AppCompatActivity {
         if (result != null) {
             //qrcode 가 없으면
             if (result.getContents() == null) {
-                Toast.makeText(QrReader.this, "취소!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(QrReader.this, "failed!", Toast.LENGTH_SHORT).show();
             } else {
                 //qrcode 결과가 있으면
-                Toast.makeText(QrReader.this, "스캔완료!", Toast.LENGTH_SHORT).show();
-                infoText.setText(result.getContents());
+
+                value=result.getContents();
+                //TODO send starting work data to server with type(g.getAction())
+                if(true) {//result
+                    Toast.makeText(QrReader.this,"success!", Toast.LENGTH_SHORT).show();
+                }
+                setResult(RESULT_OK);
+                finish();
                 /*
                 try {
                     //data를 json으로 변환

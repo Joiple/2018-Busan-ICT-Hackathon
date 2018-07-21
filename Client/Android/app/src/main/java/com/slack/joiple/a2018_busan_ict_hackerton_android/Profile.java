@@ -9,7 +9,7 @@ import android.widget.GridLayout;
 import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
-    Button changeComp,recordDetail,specDetail;
+    Button changeComp;
     TextView name,company;
     Intent o,g;
     @Override
@@ -19,27 +19,11 @@ public class Profile extends AppCompatActivity {
         name=findViewById(R.id.nameView);
         company=findViewById(R.id.companyView);
         changeComp=findViewById(R.id.changeCompBtn);
-        recordDetail=findViewById(R.id.recordBtn);
-        specDetail=findViewById(R.id.specBtn);
         changeComp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 o=new Intent(Profile.this,ChangeCompany.class);
                 startActivityForResult(o,0);
-            }
-        });
-        recordDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                o=new Intent(Profile.this,AttendanceView.class);
-                startActivity(o);
-            }
-        });
-        specDetail.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                o=new Intent(Profile.this, SpecView.class);
-                startActivity(o);
             }
         });
     }

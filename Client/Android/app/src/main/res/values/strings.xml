@@ -11,7 +11,7 @@
     <string name="signUp">sign up</string>
     <string name="id">ID</string>
     <string name="name">Name</string>
-    <string name="age">Age</string>
+    <string name="age">Birthday (ex 19901025)</string>
     <string name="password">Password</string>
     <string name="option">Option</string>
     <string name="registerCompany">Register Company</string>
