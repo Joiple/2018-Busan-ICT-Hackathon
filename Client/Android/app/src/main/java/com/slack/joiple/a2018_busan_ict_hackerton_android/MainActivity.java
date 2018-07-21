@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Intent o,g;
-    Button register,start,end,option,details;
+    Button register,start,end,option,profile;
+    TextView company;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
@@ -17,14 +19,14 @@ public class MainActivity extends AppCompatActivity {
         register=findViewById(R.id.changeCompBtn);
         start=findViewById(R.id.workBtn);
         end=findViewById(R.id.offBtn);
-        details=findViewById(R.id.detailBtn);
+        profile=findViewById(R.id.profileBtn);
         option=findViewById(R.id.optionBtn);
+        company=findViewById(R.id.companyView);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 o=new Intent(MainActivity.this,ChangeCompany.class);
-                startActivity(o);
-                finish();
+                startActivityForResult(o,0);
             }
         });
         start.setOnClickListener(new View.OnClickListener() {
@@ -32,13 +34,13 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(true){//TODO get setting of main -true : qr
                     o=new Intent(MainActivity.this,QrReader.class);
-                    startActivity(o);
-                    finish();
+
                 }else{
                     o=new Intent(MainActivity.this,NfcTagging.class);
-                    startActivity(o);
-                    finish();
                 }
+                //TODO add event params
+                startActivity(o);
+                finish();
             }
         });
         end.setOnClickListener(new View.OnClickListener() {
@@ -46,16 +48,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(true){//TODO get setting of main -true : qr
                     o=new Intent(MainActivity.this,QrReader.class);
-                    startActivity(o);
-                    finish();
                 }else{
                     o=new Intent(MainActivity.this,NfcTagging.class);
-                    startActivity(o);
-                    finish();
                 }
+                //TODO add event params
+                startActivity(o);
+                finish();
             }
         });
-        details.setOnClickListener(new View.OnClickListener() {
+        profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 o=new Intent(MainActivity.this,Profile.class);
@@ -72,10 +73,14 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     protected void onActivityResult(int request,int result,Intent data){
-        if(data.getAction().equals("logout")){
+        if(result==RESULT_CANCELED)return;
+        String action=data.getAction();
+        if(action.equals("logout")){
             o=new Intent(MainActivity.this,SignIn.class);
             startActivity(o);
             finish();
+        }else if(action.equals("changeComp")){
+            company.setText("");//TODO get company name from sharedPreferences
         }
     }
 }

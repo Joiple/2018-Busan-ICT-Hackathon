@@ -28,9 +28,8 @@ public class ChangeCompany extends AppCompatActivity {
                 //TODO send change action to server
                 if(true){//TODO result of action
                     Toast.makeText(ChangeCompany.this,"Your company was successfully changed.",Toast.LENGTH_SHORT).show();
-                    o=new Intent(ChangeCompany.this,MainActivity.class);
-                    startActivity(o);
-                    finish();
+                    //TODO modify company info into sharedPreferences
+                    setResult(RESULT_OK);
                 }else{
                     result.setVisibility(View.VISIBLE);
                     result.setText(getString(R.string.unavailableComp));
@@ -43,5 +42,12 @@ public class ChangeCompany extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+        setResult(RESULT_CANCELED);
+        super.onBackPressed();
     }
 }
