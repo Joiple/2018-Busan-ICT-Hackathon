@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
@@ -27,14 +28,27 @@ public class Profile extends AppCompatActivity {
                 startActivityForResult(o,0);
             }
         });
-
+        recordDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(Profile.this,AttendanceView.class);
+                startActivity(o);
+            }
+        });
+        specDetail.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                o=new Intent(Profile.this, SpecView.class);
+                startActivity(o);
+            }
+        });
     }
     @Override
     protected void onActivityResult(int request,int result,Intent data){
         if(result==RESULT_CANCELED)return;
         String action=data.getAction();
         if(action.equals("changeComp")){
-            company.setText("");//TODO get company name from sharedPreferences
+            //TODO get company name from sharedPreferences
         }
     }
 }

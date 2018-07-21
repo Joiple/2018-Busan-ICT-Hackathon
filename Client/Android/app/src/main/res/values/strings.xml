@@ -27,4 +27,6 @@
     <string name="profile">Profile</string>
     <string name="records">Work record</string>
     <string name="specs">Specs</string>
+    <string name="from">from : </string>
+    <string name="to">to : </string>
 </resources>
