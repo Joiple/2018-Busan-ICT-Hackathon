@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">2018-Busan-ICT-Hackerton-Android</string>
+    <string name="nfcIconDescription">Icon_NFC</string>
+    <string name="rescan">Rescan</string>
+    <string name="nfcMode">NFC Mode</string>
+    <string name="qrMode">QR code Mode</string>
+    <string name="send">Send</string>
+    <string name="info">Information</string>
+    <string name="scanning">point at QR code</string>
+    <string name="signIn">sign in</string>
+    <string name="signUp">sign up</string>
+    <string name="id">ID</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
+    <string name="password">Password</string>
+    <string name="option">Option</string>
+    <string name="registerCompany">Register Company</string>
+    <string name="changeCompany">Change Company</string>
+    <string name="startWork">Start Work</string>
+    <string name="endWork">End Work</string>
+    <string name="details">Details...</string>
+    <string name="changeCompanyTooltip">Input company code to join</string>
+    <string name="code">code</string>
+    <string name="unavailableComp">code is unavailable</string>
+    <string name="logout">Logout</string>
+    <string name="mainRead">Way of work</string>
+    <string name="profile">Profile</string>
+    <string name="records">Work record</string>
+    <string name="specs">Specs</string>
+    <string name="from">from : </string>
+    <string name="to">to : </string>
 </resources>
