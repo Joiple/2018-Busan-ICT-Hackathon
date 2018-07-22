@@ -7,6 +7,7 @@ class sql:
             try:
                 user = input('MYSQL user 이름을 입력하세요 : ')
                 ps = input('MYSQL 비밀번호를 입력하세요 : ')
+                self.infolist = ['user','company']
                 self.connection = pymysql.connect(host='localhost',
                                                   user=user,
                                                   password=ps,
@@ -51,9 +52,9 @@ class sql:
         return 1
 
     def get_info(self, flag):
-        sql = "SELECT * FROM company"
+        sql = "SELECT * FROM {}".format(self.infolist[int(flag)])
         with self.connection.cursor() as cursor:
-            info = cursor.execute(sql)
+            cursor.execute(sql)
             result = cursor.fetchall()
             print(result)
             return result

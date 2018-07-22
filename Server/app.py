@@ -66,7 +66,6 @@ def code(address):
 @app.route('/getinfo/<flag>')
 def get_info(flag):
     info = db.get_info(flag)
-    print(json.dumps(info, indent = 2, ensure_ascii=False))
     return json.dumps(info, indent=2, ensure_ascii=False)
 
 if __name__ == '__main__':
