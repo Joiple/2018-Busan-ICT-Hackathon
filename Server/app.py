@@ -21,7 +21,6 @@ def sign_in():
 
 @app.route('/makecom', methods = ["POST","GET"])
 def makecom():
-    print(request.form['introduction'])
     info = {'name' : request.form['name'],
             'location' : request.form['location'],
             'address' : request.form['address'], # 회사 가입을 위한 주소 설정 slack 처럼 그룹 주소 설장
@@ -29,7 +28,16 @@ def makecom():
             'introduction' : request.form['introduction']} # 옵셔널, 빈칸가능
 
     db.sign_in(info,1)
-    return ''
+    return 'suc'
+
+@app.route('/inout', methods = ['POST', 'GET']) # flag = in : 0 out : 1 
+def inout():
+    info = {'company_id' : request.form['company_id'],
+            'user_id' : request.form['user_id'],
+            'in/out_flag' : request.form['flag']}
+
+    db.inout(info)
+    return 'suc'
 
 @app.route('/login', methods = ['POST', 'GET'])
 def login():

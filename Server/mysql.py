@@ -31,5 +31,13 @@ class sql:
         if flag == 0:
             pass
 
+    def inout(self, info):
+        print(info)
+        sql = "INSERT INTO inout_log (company_id, user_id, inout_flag) VALUES (%s, %s, %s)"
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql, (info['company_id'], info['user_id'], info['in/out_flag']))
+
+            self.connection.commit()
+
     def dblogout(self):
         self.connection.close()
