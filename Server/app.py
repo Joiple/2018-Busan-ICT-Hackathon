@@ -1,6 +1,6 @@
 from flask import Flask, request, redirect, url_for, jsonify
 import mysql
-import qrcode, hashlib, random
+import qrcode, hashlib, random, json
 
 app = Flask(__name__)
 ranarr = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','x','y','z']
@@ -62,6 +62,12 @@ def code(address):
         check = db.update_code(address,arr)
         if check == 1: break
     return arr
+
+@app.route('/getinfo/<flag>')
+def get_info(flag):
+    info = db.get_info(flag)
+    print(json.dumps(info, indent = 2, ensure_ascii=False))
+    return json.dumps(info, indent=2, ensure_ascii=False)
 
 if __name__ == '__main__':
     app.run(debug = True)

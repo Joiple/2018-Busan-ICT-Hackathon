@@ -39,19 +39,25 @@ class sql:
 
             self.connection.commit()
 
-    # def check_rep(self, flag, content):
-    #     if flag == 0:
-    #         sql =
     def update_code(self, address, code):
         sql = "UPDATE company SET inoutcode=%s WHERE address=%s"
         with self.connection.cursor() as cursor:
             try:
-                cursor.execute(sql,(code,address))
+                cursor.execute(sql, (code,address))
             except:
                 return 0
 
         self.connection.commit()
         return 1
+
+    def get_info(self, flag):
+        sql = "SELECT * FROM company"
+        with self.connection.cursor() as cursor:
+            info = cursor.execute(sql)
+            result = cursor.fetchall()
+            print(result)
+            return result
+
 
     def dblogout(self):
         self.connection.close()
