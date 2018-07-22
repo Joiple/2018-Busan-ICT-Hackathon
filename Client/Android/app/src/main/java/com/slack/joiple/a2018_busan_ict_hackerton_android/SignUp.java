@@ -1,12 +1,24 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpCookie;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 
 public class SignUp extends AppCompatActivity {
     Intent o,g;
@@ -48,5 +60,6 @@ public class SignUp extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
     }
 }
