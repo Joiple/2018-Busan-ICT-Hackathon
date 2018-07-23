@@ -64,8 +64,11 @@ def login():
     hasher.update((request.form['password']+salt).encode("UTF-8"))
     info = {'id' : request.form['id'],
             'password' : hasher.hexdigest()}
-    db.login(info)
-    return "hello {}".format(request.form['id'])
+    check = db.login(info)
+    if check == 1:
+        return "hello {}".format(request.form['id'])
+    else:
+        return "fail"
 
 @app.route('/code/<address>') # 출퇴근 랜덤 코드 생성
 def code(address):
@@ -80,14 +83,16 @@ def get_info(flag):
     info = db.get_info(flag)
     return json.dumps(info, indent=2, ensure_ascii=False)
 
-@app.route('/test')
-def test():
-    salt = get_random_arr(random.randint(5,10))
-    print(salt)
-    hasher = hashlib.sha256()
-    hasher.update("asd".encode("UTF-8"))
-    print(hasher.hexdigest())
-    return (hasher.hexdigest()+"    "+salt)
+@app.route('/comlogin', methods = ['POST','GET'])
+def comlogin():
+    info = {'address' : request.form['address'],
+            'code' : request.form['code']}
+    check = db.comlogin(info)
+    print(check)
+    if check == 1:
+        return '1'
+    return '0'
+
 
 def get_random_arr(n):
     arr = ''
