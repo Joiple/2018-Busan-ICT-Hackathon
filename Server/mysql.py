@@ -55,7 +55,7 @@ class sql:
         return 1
 
     def get_info(self, flag, **kwargs):
-        # flag : 10 = salt, 11 = qr,nfc 
+        # flag : 10 = salt, 11 = qr,nfc
         if flag == 10:
             sql = "SELECT salt FROM user WHERE id='{}'".format(kwargs['id'])
             with self.connection.cursor() as cursor:
@@ -78,8 +78,18 @@ class sql:
         with self.connection.cursor() as cursor:
             cursor.execute(sql)
             password = cursor.fetchall()
-            result = 1 if password == info['password'] else 0
+            result = 1 if password[0]['password'] == info['password'] else 0
             return result
+
+    def comlogin(self,info):
+        sql = "SELECT inoutcode FROM company WHERE address='{}'".format(info['address'])
+        with self.connection.cursor() as cursor:
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            print(result, info)
+            if result[0]['inoutcode'] == info['code']:
+                return 1
+            return 0
 
     def dblogout(self):
         self.connection.close()
