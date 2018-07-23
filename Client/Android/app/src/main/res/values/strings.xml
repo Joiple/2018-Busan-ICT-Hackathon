@@ -29,5 +29,5 @@
     <string name="specs">Specs</string>
     <string name="from">from : </string>
     <string name="to">to : </string>
-    <string name="serverURL"></string>
+    <string name="serverURL">http://httpbin.org/post</string>
 </resources>
