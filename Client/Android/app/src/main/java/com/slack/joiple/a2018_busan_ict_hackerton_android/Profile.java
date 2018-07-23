@@ -33,7 +33,7 @@ public class Profile extends AppCompatActivity {
         NetworkManager nw=new NetworkManager(getString(R.string.serverURL));
         nw.in.addItem("id",pref.getString("id","null"));
         nw.in.addItem("password",pref.getString("password","null"));
-        nw.
+
     }
     @Override
     protected void onActivityResult(int request,int result,Intent data){

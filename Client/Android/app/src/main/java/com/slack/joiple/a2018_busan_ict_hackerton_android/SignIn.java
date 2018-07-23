@@ -49,9 +49,12 @@ public class SignIn extends AppCompatActivity {
                     SharedPreferences.Editor editor=pref.edit();
                     editor.putBoolean("isUsing",true);
                     //TODO get user Info
-
                     editor.putString("id",idEdit.getText().toString());
                     editor.putString("pass",passEdit.getText().toString());
+                    editor.putString("birthday",nw.out.getItem("birth"));
+                    editor.putString("email",nw.out.getItem("email"));
+                    editor.putString("wage",nw.out.getItem("wage"));
+                    editor.putString("phone",nw.out.getItem("phone"));
                     editor.commit();
                     o=new Intent(SignIn.this,MainActivity.class);
                     startActivity(o);
