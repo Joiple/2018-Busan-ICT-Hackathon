@@ -15,9 +15,9 @@ class Ui_Dialog(object):
         self.lcdNumber = QtWidgets.QLCDNumber(Dialog)
         self.lcdNumber.setGeometry(QtCore.QRect(20, 10, 281, 71))
         self.lcdNumber.setObjectName("lcdNumber")
-        self.graphicsView = QtWidgets.QGraphicsView(Dialog)
-        self.graphicsView.setGeometry(QtCore.QRect(90, 90, 141, 141))
-        self.graphicsView.setObjectName("graphicsView")
+        self.label = QtWidgets.QLabel(Dialog)
+        self.label.setGeometry(QtCore.QRect(90, 90, 141, 141))
+        self.label.setObjectName("label")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -27,11 +27,12 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
 
 
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Dialog = QtWidgets.QDialog()
+    ui = Ui_Dialog()
+    ui.setupUi(Dialog)
+    Dialog.show()
+    sys.exit(app.exec_())
 
-import sys
-app = QtWidgets.QApplication(sys.argv)
-Dialog = QtWidgets.QDialog()
-ui = Ui_Dialog()
-ui.setupUi(Dialog)
-Dialog.show()
-sys.exit(app.exec_())

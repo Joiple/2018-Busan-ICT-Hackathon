@@ -78,17 +78,20 @@ def code(address):
         if check == 1: break
     return arr
 
-@app.route('/getinfo/<flag>')
-def get_info(flag):
-    info = db.get_info(flag)
-    return json.dumps(info, indent=2, ensure_ascii=False)
+@app.route('/getinfo/<flag>/<addr>',methods = ['POST','GET'])
+def get_info(flag,addr):
+    if flag == '11':
+        info = db.get_info(flag,company_id = addr)
+        return info
+
+
+    #return json.dumps(info, indent=2, ensure_ascii=False)
 
 @app.route('/comlogin', methods = ['POST','GET'])
 def comlogin():
     info = {'address' : request.form['address'],
             'code' : request.form['code']}
     check = db.comlogin(info)
-    print(check)
     if check == 1:
         return '1'
     return '0'

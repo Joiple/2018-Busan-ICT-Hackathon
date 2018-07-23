@@ -7,8 +7,8 @@
 # WARNING! All changes made in this file will be lost!
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import requests
-
+import requests, qrcode
+from multiprocessing import Process
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -65,40 +65,56 @@ class Ui_MainWindow(object):
         info = {'address' : self.lineEdit.text(), 'code' : self.lineEdit_2.text()}
         r = requests.post(url = "http://localhost:5000/comlogin",data = info)
         if r.text == '1':
-            print("suc")
             Dialog = QtWidgets.QDialog()
             second = Ui_Dialog()
             second.setupUi(Dialog)
             MainWindow.close()
+            # 오류 나서 멀티프로세스 처리
+            p = Process(target= qr_gen, args = (info['address'],))
+            p.start()
+            p.join()
+
             Dialog.show()
         else:
             print("fuckoff")
 
 class Ui_Dialog(object):
-    def setupUi(self, Dialog):
-        Dialog.setObjectName("Dialog")
-        Dialog.resize(320, 240)
-        self.lcdNumber = QtWidgets.QLCDNumber(Dialog)
-        self.lcdNumber.setGeometry(QtCore.QRect(20, 10, 281, 71))
-        self.lcdNumber.setObjectName("lcdNumber")
-        self.graphicsView = QtWidgets.QGraphicsView(Dialog)
-        self.graphicsView.setGeometry(QtCore.QRect(90, 90, 141, 141))
-        self.graphicsView.setObjectName("graphicsView")
+        def setupUi(self, Dialog):
+            Dialog.setObjectName("Dialog")
+            Dialog.resize(320, 240)
+            self.lcdNumber = QtWidgets.QLCDNumber(Dialog)
+            self.lcdNumber.setGeometry(QtCore.QRect(20, 10, 281, 71))
+            self.lcdNumber.setObjectName("lcdNumber")
+            self.label = QtWidgets.QLabel(Dialog)
+            self.label.setGeometry(QtCore.QRect(90, 90, 141, 141))
+            self.label.setObjectName("label")
+            pixmap = QtGui.QPixmap('qr.png')
+            self.label.setPixmap(pixmap)
 
-        self.retranslateUi(Dialog)
-        QtCore.QMetaObject.connectSlotsByName(Dialog)
+            self.retranslateUi(Dialog)
+            QtCore.QMetaObject.connectSlotsByName(Dialog)
 
-    def retranslateUi(self, Dialog):
-        _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        def retranslateUi(self, Dialog):
+            _translate = QtCore.QCoreApplication.translate
+            Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
 
 
+def qr_gen(address):
+    r = requests.get('http://localhost:5000/getinfo/11/{}'.format(address))
+    inoutcode = r.text
+    qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_L,
+    box_size=5,
+    border=4,
+    )
+    qr.add_data(inoutcode)
+    qr.make(fit=True)
 
-        # print(r)
-        # if r == 1:
-        #     print("logged in")
-        # else:
-        #     print("fuck off")
+    img = qr.make_image()
+    img.save("qr.png")
+    qr.clear()
+
 
 if __name__=='__main__':
     import sys
