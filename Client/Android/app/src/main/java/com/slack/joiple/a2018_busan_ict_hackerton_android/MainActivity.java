@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
     Intent o,g;
     Button register,start,end,option,profile,recordDetail;
     TextView company;
-    SharedPreferences pref;
+    SharedPreferences pref,settings;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         company=findViewById(R.id.companyView);
         recordDetail=findViewById(R.id.recordBtn);
         pref=getSharedPreferences("user",MODE_PRIVATE);
+        settings=getSharedPreferences("settings",MODE_PRIVATE);
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,10 +34,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(o,0);
             }
         });
+        company.setText(pref.getString("company","null"));
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(true){//TODO get setting of main -true : qr
+                if(settings.getBoolean("mode",true)){
                     o=new Intent(MainActivity.this,QrReader.class);
                     o.setAction("start");
                 }else{
@@ -49,14 +51,13 @@ public class MainActivity extends AppCompatActivity {
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(true){//TODO get setting of main -true : qr
+                if(settings.getBoolean("mode",true)){
                     o=new Intent(MainActivity.this,QrReader.class);
                     o.setAction("end");
                 }else{
                     o=new Intent(MainActivity.this,NfcTagging.class);
                     o.setAction("end");
                 }
-                //TODO add event params
                 startActivity(o);
             }
         });

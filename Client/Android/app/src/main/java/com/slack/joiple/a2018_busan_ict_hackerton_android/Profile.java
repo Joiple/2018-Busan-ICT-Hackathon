@@ -9,9 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Profile extends AppCompatActivity {
+public class Profile extends AppCompatActivity {// information : id password name birthday phone_number email wage
     Button changeComp;
-    TextView name,company;
+    TextView name,company,birthday,phone,email,wage;
     Intent o,g;
     SharedPreferences pref;
     @Override
