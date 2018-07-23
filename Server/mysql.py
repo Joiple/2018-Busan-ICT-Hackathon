@@ -1,6 +1,5 @@
 import pymysql.cursors
 
-
 class sql:
     def __init__(self):
         while 1:
@@ -20,12 +19,10 @@ class sql:
                 print("user이름과 password를 확인하세요")
 
     def sign_in(self, info, dbflag, salt):
-        print('run')
         sql = "INSERT INTO user (id, password, name, phone_number, birthday, email, salt) VALUES (%s, %s, %s, %s, %s, %s, %s)" if dbflag == 0 else "INSERT INTO company (name, location, address, crn, introduction, inoutcode) VALUES (%s, %s, %s, %s, %s, %s)"
         with self.connection.cursor() as cursor:
             #sql = "INSERT INTO {type} (name, phone_number, birthday, email) VALUES (%s, %s, %s, %s)"
             if dbflag == 0:
-                print(info)
                 cursor.execute(
                     sql, (info['id'], info['password'], info['name'], info['phone_number'], info['birthday'], info['email'], salt)) # 원래는 암호화 키값을 다른 서버에 보관하여야 한다.
             else:
@@ -36,9 +33,13 @@ class sql:
 
     def inout(self, info):
         sql = "INSERT INTO inout_log (company_id, user_id, inout_flag) VALUES (%s, %s, %s)"
+        if 'code' in info.keys():
+            check = self.get_info(11,company_id = info['company_id'],code = info['code'])
+            if check == 0:
+                return 0
         with self.connection.cursor() as cursor:
             cursor.execute(
-                sql, (info['company_id'], info['user_id'], info['in/out_flag']))
+                sql, (info['company_id'], info['user_id'], info['in/outflag']))
 
             self.connection.commit()
 
@@ -61,12 +62,15 @@ class sql:
                 result = cursor.fetchall()
                 return result[0]['salt']
 
-        sql = "SELECT * FROM {}".format(self.infolist[int(flag)])
-        with self.connection.cursor() as cursor:
-            cursor.execute(sql)
-            result = cursor.fetchall()
-            print(result)
-            return result
+        if flag == 11:
+            sql = "SELECT inoutcode FROM company WHERE address='{}'".format(kwargs['company_id'])
+            with self.connection.cursor() as cursor:
+                cursor.execute(sql)
+                result = cursor.fetchall()
+                if result[0]['inoutcode'] != kwargs['code']:
+                    return 0
+                else:
+                    return 1
 
     def login(self, info):
         sql = "SELECT password FROM user WHERE id = '{}'".format(info['id'])

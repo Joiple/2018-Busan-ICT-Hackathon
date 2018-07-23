@@ -46,6 +46,17 @@ def inout():
     db.inout(info)
     return 'suc'
 
+@app.route('/qrinout', methods = ['POST','GET'])
+def qrinout():
+    info = {'code' : request.form['code'],
+            'user_id' : request.form['user_id'],
+            'company_id' : request.form['company_id'],
+            'in/outflag' : request.form['flag']}
+    check = db.inout(info)
+    if check == 0:
+        return 'fail'
+    return 'suc'
+
 @app.route('/login', methods = ['POST', 'GET'])
 def login():
     salt = db.get_info(10, id=request.form['id']) # get_info 10 == salt값 추출
