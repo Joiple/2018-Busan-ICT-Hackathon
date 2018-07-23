@@ -9,6 +9,8 @@ activity that can change company
 first loading activity when application launched
 ### MainActivity-Activity
 main menu.
+### NetworkManager-Class
+control networks(superclass : HttpUrlConnections)
 ### NfcService-Service
 service that communicates with NFC
 ### NfcTagging-Activity
@@ -23,8 +25,7 @@ activity for scan and post to server with QR code
 activity about sign-in
 ### SignUp-Activity
 activity about sign-up
-### SpecView-Activity
-activity that can check detailed specs
+
 
 
 
