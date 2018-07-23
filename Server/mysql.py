@@ -55,6 +55,7 @@ class sql:
         return 1
 
     def get_info(self, flag, **kwargs):
+        # flag : 10 = salt, 11 = qr,nfc 
         if flag == 10:
             sql = "SELECT salt FROM user WHERE id='{}'".format(kwargs['id'])
             with self.connection.cursor() as cursor:
