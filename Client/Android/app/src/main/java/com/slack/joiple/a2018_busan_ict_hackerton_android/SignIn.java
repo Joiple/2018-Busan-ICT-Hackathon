@@ -10,12 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class SignIn extends AppCompatActivity {
     EditText idEdit,passEdit;
     TextView msgView;
     Button signIn,signUp;
     Intent o,g;
+    private final long FINISH_INTERVAL_TIME = 2000;
+    private long backPressedTime = 0;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
@@ -65,6 +68,21 @@ public class SignIn extends AppCompatActivity {
             case 0:
                 if(result==RESULT_OK) finish();
                 break;
+        }
+    }
+    @Override
+    public void onBackPressed() {
+        long tempTime = System.currentTimeMillis();
+        long intervalTime = tempTime - backPressedTime;
+
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
+        {
+            super.onBackPressed();
+        }
+        else
+        {
+            backPressedTime = tempTime;
+            Toast.makeText(getApplicationContext(), "종료하실려면 한번더 뒤로가기를 누르세요.", Toast.LENGTH_SHORT).show();
         }
     }
 }
