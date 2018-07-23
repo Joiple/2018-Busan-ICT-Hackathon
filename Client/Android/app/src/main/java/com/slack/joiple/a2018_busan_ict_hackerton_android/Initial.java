@@ -8,33 +8,27 @@ import android.support.v7.app.AppCompatActivity;
 public class Initial extends AppCompatActivity {
     Intent o;
     SharedPreferences pref;
+
     @Override
     public void onCreate(Bundle saveInstanceBundle){
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_initial);
+        pref=getSharedPreferences("user",MODE_PRIVATE);
+        boolean isUsing=pref.getBoolean("isUsing",false);
+        if(isUsing){
+            o=new Intent(Initial.this,MainActivity.class);
+            startActivity(o);
+        }else{
+            o=new Intent(Initial.this,SignIn.class);
+            startActivity(o);
+        }
+        finish();
+
     }
-    @Override
-    public void onStart(){
-        super.onStart();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                pref=getSharedPreferences("user",MODE_PRIVATE);
-                boolean isUsing=pref.getBoolean("isUsing",false);
-                if(isUsing){
-                    o=new Intent(Initial.this,MainActivity.class);
-                    startActivity(o);
-                }else{
-                    o=new Intent(Initial.this,SignIn.class);
-                    startActivity(o);
-                }
-                finish();
-            }
-        }).start();
-    }
+
 }

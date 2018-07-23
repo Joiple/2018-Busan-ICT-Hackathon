@@ -11,7 +11,7 @@
     <string name="signUp">sign up</string>
     <string name="id">ID</string>
     <string name="name">Name</string>
-    <string name="age">Birthday</string>
+    <string name="age">Birthday (ex 19901025)</string>
     <string name="password">Password</string>
     <string name="option">Option</string>
     <string name="registerCompany">Register Company</string>
@@ -30,8 +30,4 @@
     <string name="from">from : </string>
     <string name="to">to : </string>
     <string name="serverURL">http://httpbin.org/post</string>
-    <string name="wage">wage</string>
-    <string name="email">email</string>
-    <string name="phone">phone number</string>
-    <string name="company">company</string>
 </resources>
