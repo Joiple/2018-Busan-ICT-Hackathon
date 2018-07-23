@@ -31,6 +31,7 @@ public class CompanyChanger extends AppCompatActivity {
                 //TODO send change action to server
                 if(true){//TODO result of action
                     Toast.makeText(CompanyChanger.this,"Your company was successfully changed.",Toast.LENGTH_SHORT).show();
+                    SharedPreferences.Editor editor=pref.edit();
                     //TODO modify company info into sharedPreferences
                     setResult(RESULT_OK);
                 }else{

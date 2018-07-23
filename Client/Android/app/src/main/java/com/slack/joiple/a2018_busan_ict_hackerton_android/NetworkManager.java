@@ -1,32 +1,25 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
-import android.content.ContentValues;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
 
 public class NetworkManager extends AsyncTask<String, Void, Void> {
     String url;
-    public String response;
-    public Map<String,String> outputMap;
-    public NetworkManager(String url,String res){
+    public PacketConverter in,out;
+    public NetworkManager(String url){
         this.url=url;
-        response=res;
+        in=new PacketConverter();
+        out=new PacketConverter();
     }
-    public String getResponseValue(String key){
-        return (String)outputMap.get(key);
+    public void execute(){
+        this.execute(in.pack());
     }
     @Override
     public Void doInBackground(String... params) {
@@ -54,12 +47,10 @@ public class NetworkManager extends AsyncTask<String, Void, Void> {
             StringBuffer response = new StringBuffer();
             while((line = br.readLine()) != null) {
                 response.append(line);
-                response.append('\r');
+                response.append('\n');
             }
             br.close();
-
-            this.response= response.toString();
-
+            out.unPack(response.toString());
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -44,16 +44,21 @@ public class SignUp extends AppCompatActivity {
                 //TODO send id,name,password,age to server for sign up
                 SharedPreferences pref=getSharedPreferences("user",MODE_PRIVATE);
                 SharedPreferences.Editor editor=pref.edit();
-                editor.putString("id",idEdit.getText().toString());
-                editor.putString("pass",passEdit.getText().toString());
-                editor.putString("name",nameEdit.getText().toString());
-                editor.putString("age",ageEdit.getText().toString());
+                editor.putString("id",id);
+                editor.putString("pass",password);
+                editor.putString("name",name);
+                editor.putString("birth",birth);
                 editor.putBoolean("isUsing",true);
                 editor.commit();
+                String result="null";
+                NetworkManager nm=new NetworkManager(getString(R.string.serverURL));
+                
+                nm.in.addItem("id",id);
+                nm.in.addItem("password",password);
+                nm.in.addItem("name",name);
+                nm.in.addItem("birthday",birth);
+                nm.execute();
                 o=new Intent(SignUp.this,MainActivity.class);
-                String res="";
-                new NetworkManager(getString(R.string.serverURL),res).execute("hello");
-                Log.i("crawl",res);
                 startActivity(o);
                 finish();
             }

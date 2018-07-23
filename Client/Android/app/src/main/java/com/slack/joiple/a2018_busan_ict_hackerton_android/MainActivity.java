@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(o);
             finish();
         }else if(action.equals("changeComp")){
-            company.setText("");//TODO get company name from sharedPreferences
+            company.setText(pref.getString("compName","null"));
         }else if(action.equals("end")){
 
         }

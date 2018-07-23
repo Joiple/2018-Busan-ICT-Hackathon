@@ -1,6 +1,7 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,6 +12,7 @@ public class Profile extends AppCompatActivity {
     Button changeComp;
     TextView name,company;
     Intent o,g;
+    SharedPreferences pref;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
@@ -25,13 +27,14 @@ public class Profile extends AppCompatActivity {
                 startActivityForResult(o,0);
             }
         });
+        pref=getSharedPreferences("user",MODE_PRIVATE);
     }
     @Override
     protected void onActivityResult(int request,int result,Intent data){
         if(result==RESULT_CANCELED)return;
         String action=data.getAction();
         if(action.equals("changeComp")){
-            //TODO get company name from sharedPreferences
+            pref.getString("compName","null");
         }
     }
 }
