@@ -1,75 +1,70 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
+import android.content.ContentValues;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
 
-public class NetworkManager extends AsyncTask<Void, Void, String> {
-    String url="http://httpbin.org/get?param1=1";
-    String result;
-    String query;
-    public NetworkManager(String Url,String query,String result){
-        this.query=query;
-        this.result=result;
-        this.query=query;
+public class NetworkManager extends AsyncTask<String, Void, Void> {
+    String url;
+    public String response;
+    public Map<String,String> outputMap;
+    public NetworkManager(String url,String res){
+        this.url=url;
+        response=res;
+    }
+    public String getResponseValue(String key){
+        return (String)outputMap.get(key);
     }
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
-
-    @Override
-    protected String doInBackground(Void... voids) {
-
-        try{
-            url+=query;
-            URL Url = new URL(url);  // URL화 한다.
-            HttpURLConnection conn = (HttpURLConnection) Url.openConnection(); // URL을 연결한 객체 생성.
-            //conn.setRequestMethod("GET"); // get방식 통신
-            System.out.println(conn.getResponseCode());
-            result=readStream(conn.getInputStream());
-            Log.v("client",result);
-        }catch(MalformedURLException | ProtocolException exception) {
-            exception.printStackTrace();
-        }catch(IOException io){
-            io.printStackTrace();
-        }
-        return null;
-    }
-
-    @Override
-    protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-        System.out.println(s);
-    }
-    private String readStream(InputStream in) {
-        BufferedReader reader = null;
-        StringBuffer response = new StringBuffer();
+    public Void doInBackground(String... params) {
         try {
-            reader = new BufferedReader(new InputStreamReader(in));
-            String line = "";
-            while ((line = reader.readLine()) != null) {
+
+            URL obj = new URL(url);
+            HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
+
+            conn.setReadTimeout(10000);
+            conn.setConnectTimeout(15000);
+            conn.setRequestMethod("POST");
+            conn.setDoInput(true);
+            conn.setDoOutput(true);
+            conn.setRequestProperty("Content-Type","application/json");
+
+            byte[] outputInBytes = params[0].getBytes("UTF-8");
+            OutputStream os = conn.getOutputStream();
+            os.write( outputInBytes );
+            os.close();
+            int retCode = conn.getResponseCode();
+            Log.d("responseCode",conn.getResponseMessage());
+            InputStream is = conn.getInputStream();
+            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            String line;
+            StringBuffer response = new StringBuffer();
+            while((line = br.readLine()) != null) {
                 response.append(line);
+                response.append('\r');
             }
-        } catch (IOException e) {
+            br.close();
+
+            this.response= response.toString();
+
+        } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (reader != null) {
-                try {
-                    reader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
-        return response.toString();
+
+        return null;
+
     }
 }

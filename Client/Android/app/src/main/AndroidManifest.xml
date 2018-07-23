@@ -26,7 +26,7 @@
 		<activity android:name=".AttendanceView">
 
 		</activity>
-		<activity android:name=".ChangeCompany">
+		<activity android:name=".CompanyChanger">
 
 		</activity>
 
@@ -47,7 +47,7 @@
 		<activity android:name=".SignUp">
 
 		</activity>
-		<activity android:name=".SpecView">
+		<activity android:name=".CompanyAdder">
 
 		</activity>
 

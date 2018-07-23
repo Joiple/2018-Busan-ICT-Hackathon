@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -50,6 +51,9 @@ public class SignUp extends AppCompatActivity {
                 editor.putBoolean("isUsing",true);
                 editor.commit();
                 o=new Intent(SignUp.this,MainActivity.class);
+                String res="";
+                new NetworkManager(getString(R.string.serverURL),res).execute("hello");
+                Log.i("crawl",res);
                 startActivity(o);
                 finish();
             }
@@ -60,6 +64,5 @@ public class SignUp extends AppCompatActivity {
                 onBackPressed();
             }
         });
-
     }
 }

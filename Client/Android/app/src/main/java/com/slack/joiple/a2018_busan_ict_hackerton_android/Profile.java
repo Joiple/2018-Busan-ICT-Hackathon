@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.GridLayout;
 import android.widget.TextView;
 
 public class Profile extends AppCompatActivity {
@@ -22,7 +21,7 @@ public class Profile extends AppCompatActivity {
         changeComp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                o=new Intent(Profile.this,ChangeCompany.class);
+                o=new Intent(Profile.this,CompanyChanger.class);
                 startActivityForResult(o,0);
             }
         });
