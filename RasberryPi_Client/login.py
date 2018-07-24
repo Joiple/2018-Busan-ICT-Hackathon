@@ -9,6 +9,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import requests, qrcode
 from multiprocessing import Process
+from time import strftime, sleep
+import datetime
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -67,21 +69,38 @@ class Ui_MainWindow(object):
         if r.text == '1':
             Dialog = QtWidgets.QDialog()
             second = Ui_Dialog()
-            second.setupUi(Dialog)
+            second.setupUi(Dialog, info)
             MainWindow.close()
-            # 오류 나서 멀티프로세스 처리
+
+            #오류 나서 멀티프로세스 처리
             p = Process(target= qr_gen, args = (info['address'],))
             p.start()
             p.join()
 
             Dialog.show()
         else:
-            print("fuckoff")
+            print("Please chech your address/code")
 
 class Ui_Dialog(object):
-        def setupUi(self, Dialog):
+        def setupUi(self, Dialog, info):
+            self.info = info
             Dialog.setObjectName("Dialog")
             Dialog.resize(320, 240)
+            self.timer = QtCore.QTimer(Dialog)
+            self.timer.timeout.connect(self.time)
+            self.timer.start(1000)
+
+            current = datetime.datetime.now()
+            if current.hour < 14:
+                sleeptime = current.replace(hour = 14) - current
+            else:
+                sleeptime = datetime.datetime(current.year,current.month,current.day+1,2) - current
+
+            self.timer2 = QtCore.QTimer(Dialog)
+            self.timer2.timeout.connect(self.qrcode_reset)
+            self.timer2.start(sleeptime.total_seconds() * 1000)
+
+
             self.lcdNumber = QtWidgets.QLCDNumber(Dialog)
             self.lcdNumber.setGeometry(QtCore.QRect(20, 10, 281, 71))
             self.lcdNumber.setObjectName("lcdNumber")
@@ -97,6 +116,20 @@ class Ui_Dialog(object):
         def retranslateUi(self, Dialog):
             _translate = QtCore.QCoreApplication.translate
             Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+
+        def time(self):
+            self.lcdNumber.display(strftime('%H'+':'+'%M'))
+            self.timer.start(1000)
+
+        def qrcode_reset(self):
+            p = Process(target= qr_gen, args = (self.info['address'],))
+            p.start()
+            p.join()
+
+            pixmap = QtGui.QPixmap('qr.png')
+            self.label.setPixmap(pixmap)
+
+            timer2.start(43200000) # 12시간
 
 
 def qr_gen(address):
@@ -114,6 +147,7 @@ def qr_gen(address):
     img = qr.make_image()
     img.save("qr.png")
     qr.clear()
+
 
 
 if __name__=='__main__':
