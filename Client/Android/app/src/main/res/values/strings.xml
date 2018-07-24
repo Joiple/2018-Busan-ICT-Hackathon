@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">2018-Busan-ICT-Hackerton-Android</string>
+    <string name="app_name">Duties</string>
     <string name="nfcIconDescription">Icon_NFC</string>
     <string name="rescan">Rescan</string>
     <string name="nfcMode">NFC Mode</string>
@@ -19,17 +19,16 @@
     <string name="startWork">Start Work</string>
     <string name="endWork">End Work</string>
     <string name="details">Details...</string>
-    <string name="changeCompanyTooltip">Input company code to join</string>
-    <string name="code">code</string>
-    <string name="unavailableComp">code is unavailable</string>
+    <string name="changeCompanyTooltip">Input company address to join</string>
+    <string name="code">address</string>
+    <string name="unavailableComp">address is unavailable</string>
     <string name="logout">Logout</string>
-    <string name="mainRead">Way of work</string>
+    <string name="mainRead">Mode</string>
     <string name="profile">Profile</string>
     <string name="records">Work record</string>
-    <string name="specs">Specs</string>
     <string name="from">from : </string>
     <string name="to">to : </string>
-    <string name="serverURL">http://httpbin.org/post</string>
+    <string name="serverURL" translatable="false">http://httpbin.org/post</string>
     <string name="wage">wage</string>
     <string name="email">email</string>
     <string name="phone">phone number</string>

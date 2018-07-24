@@ -63,6 +63,13 @@
             app:layout_constraintTop_toBottomOf="@+id/companyMod" />
 
         <Button
+            android:id="@+id/addBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/registerCompany" />
+
+        <Button
             android:id="@+id/cancelBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
