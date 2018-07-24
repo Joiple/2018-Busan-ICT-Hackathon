@@ -1,29 +1,19 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpCookie;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-
 public class SignUp extends AppCompatActivity {
+    //TODO information : id password name birthday phone_number email wage
     Intent o,g;
-    EditText idEdit,passEdit,nameEdit,ageEdit;
+    EditText idEdit,passEdit,nameEdit,phoneEdit,emailEdit,wageEdit;
+    DatePicker ageEdit;
     Button cancelBtn,signUpBtn;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
@@ -36,18 +26,27 @@ public class SignUp extends AppCompatActivity {
         ageEdit=findViewById(R.id.ageEdit);
         cancelBtn=findViewById(R.id.cancelBtn);
         signUpBtn=findViewById(R.id.signUpBtn);
+        phoneEdit=findViewById(R.id.phoneEdit);
+        emailEdit=findViewById(R.id.emailEdit);
+        wageEdit=findViewById(R.id.wageEdit);
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id=idEdit.getText().toString(),password=passEdit.getText().toString(),name=nameEdit.getText().toString();
-                String birth=ageEdit.getText().toString();
+
                 //TODO send id,name,password,age to server for sign up
                 SharedPreferences pref=getSharedPreferences("user",MODE_PRIVATE);
                 SharedPreferences.Editor editor=pref.edit();
+                String id=idEdit.getText().toString(),password=passEdit.getText().toString(),name=nameEdit.getText().toString();
+                String birth=ageEdit.getYear()+"-"+(ageEdit.getMonth()+1)+"-"+ageEdit.getDayOfMonth();
+                String email=emailEdit.getText().toString(),wage=wageEdit.getText().toString(),phone=phoneEdit.getText().toString();
+
                 editor.putString("id",id);
                 editor.putString("pass",password);
                 editor.putString("name",name);
                 editor.putString("birth",birth);
+                editor.putString("email",email);
+                editor.putString("wage",wage);
+                editor.putString("phone",phone);
                 editor.putBoolean("isUsing",true);
                 editor.commit();
                 String result="null";
@@ -57,8 +56,12 @@ public class SignUp extends AppCompatActivity {
                 nm.in.addItem("password",password);
                 nm.in.addItem("name",name);
                 nm.in.addItem("birthday",birth);
+                nm.in.addItem("email",email);
+                nm.in.addItem("wage",wage);
+                nm.in.addItem("phone",phone);
                 nm.execute();
                 o=new Intent(SignUp.this,MainActivity.class);
+
                 startActivity(o);
                 finish();
             }

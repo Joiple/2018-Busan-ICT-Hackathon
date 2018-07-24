@@ -37,6 +37,8 @@ public class QrReader extends AppCompatActivity {
         sendBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                NetworkManager nw=new NetworkManager(getString(R.string.serverURL));
+
                 //TODO send to server
             }
         });

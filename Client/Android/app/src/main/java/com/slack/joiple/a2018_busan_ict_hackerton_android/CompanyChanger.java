@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class CompanyChanger extends AppCompatActivity {
     Intent o,g;
     EditText compEdit;
-    Button submit,cancel;
+    Button submit,cancel,add;
     TextView result;
     SharedPreferences pref;
     @Override
@@ -24,6 +24,7 @@ public class CompanyChanger extends AppCompatActivity {
         submit=findViewById(R.id.sendBtn);
         result=findViewById(R.id.resultView);
         cancel=findViewById(R.id.cancelBtn);
+        add=findViewById(R.id.addBtn);
         pref=getSharedPreferences("user",MODE_PRIVATE);
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,9 +47,23 @@ public class CompanyChanger extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(CompanyChanger.this,CompanyAdder.class);
+                startActivityForResult(o,10);
 
+            }
+        });
     }
-
+    @Override
+    public void onActivityResult(int requestCode,int resultCode,Intent data){
+        if(requestCode==10){
+            if(resultCode==RESULT_OK){
+                finish();
+            }
+        }
+    }
     @Override
     public void onBackPressed() {
         setResult(RESULT_CANCELED);
