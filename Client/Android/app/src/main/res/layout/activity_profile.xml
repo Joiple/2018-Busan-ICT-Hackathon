@@ -84,8 +84,7 @@
                     android:id="@+id/emailEdit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="asdf"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/emailTooltip" />
@@ -133,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:calendarViewShown="false"
                     android:datePickerMode="spinner"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/birthTooltip" />
             </android.support.constraint.ConstraintLayout>
@@ -205,22 +204,24 @@
                 android:text="@string/changeCompany" />
 
             <Button
-                android:id="@+id/editBtn"
+                android:id="@+id/modBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/edit" />
+                android:text="@android:string/ok"
+                android:visibility="gone" />
 
             <Button
                 android:id="@+id/cancelModBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@android:string/cancel" />
+                android:text="@android:string/cancel"
+                android:visibility="gone" />
 
             <Button
-                android:id="@+id/modBtn"
+                android:id="@+id/editBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@android:string/ok" />
+                android:text="@string/edit" />
 
         </LinearLayout>
     </ScrollView>

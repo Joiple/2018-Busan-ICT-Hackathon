@@ -17,7 +17,7 @@ import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
 
 public class Profile extends AppCompatActivity {// information : id password name birthday phone_number email wage company
-    Button changeComp,editButton;
+    Button changeComp,editButton,okBtn,cancelBtn;
     TextView nameView,companyView,birthdayView,phoneView,emailView,wageView;
     EditText nameEdit,phoneEdit,emailEdit,wageEdit;
     DatePicker birthdayEdit;
@@ -41,6 +41,8 @@ public class Profile extends AppCompatActivity {// information : id password nam
         emailEdit=findViewById(R.id.emailEdit);
         wageEdit=findViewById(R.id.wageEdit);
         editButton=findViewById(R.id.editBtn);
+        okBtn=findViewById(R.id.modBtn);
+        cancelBtn=findViewById(R.id.cancelModBtn);
         changeComp=findViewById(R.id.changeCompBtn);
         changeComp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,7 +54,7 @@ public class Profile extends AppCompatActivity {// information : id password nam
         pref=getSharedPreferences("user",MODE_PRIVATE);
         nameView.setText(pref.getString("name","null"));
         companyView.setText(pref.getString("company","null"));
-        birthdayView.setText(pref.getString("birthday","null"));
+        birthdayView.setText(pref.getString("birth","null"));
         phoneView.setText(pref.getString("phone","null"));
         emailView.setText(pref.getString("email","null"));
         wageView.setText(pref.getString("wage","null"));
@@ -62,7 +64,7 @@ public class Profile extends AppCompatActivity {// information : id password nam
         wageEdit.setText(pref.getString("wage","null"));
         String date=pref.getString("birth","1900-01-01");
         String[] dateField=date.split("-");
-        birthdayEdit.updateDate(Integer.valueOf(dateField[0]),Integer.valueOf(dateField[1]),Integer.valueOf(dateField[2]));
+        birthdayEdit.updateDate(Integer.valueOf(dateField[0]),Integer.valueOf(dateField[1])-1,Integer.valueOf(dateField[2]));
         NetworkManager nw=new NetworkManager(getString(R.string.serverURL));
         nw.in.addItem("id",pref.getString("id","null"));
         nw.in.addItem("password",pref.getString("password","null"));
@@ -82,6 +84,9 @@ public class Profile extends AppCompatActivity {// information : id password nam
                     phoneEdit.setVisibility(GONE);
                     emailEdit.setVisibility(GONE);
                     wageEdit.setVisibility(GONE);
+                    okBtn.setVisibility(GONE);
+                    cancelBtn.setVisibility(GONE);
+                    view.setVisibility(VISIBLE);
                     isEditing=false;
                 }else {
                     nameView.setVisibility(GONE);
@@ -94,11 +99,49 @@ public class Profile extends AppCompatActivity {// information : id password nam
                     phoneEdit.setVisibility(VISIBLE);
                     emailEdit.setVisibility(VISIBLE);
                     wageEdit.setVisibility(VISIBLE);
+                    okBtn.setVisibility(VISIBLE);
+                    cancelBtn.setVisibility(VISIBLE);
+                    view.setVisibility(GONE);
                     isEditing=true;
                 }
             }
         });
-
+        okBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor editor=pref.edit();
+                String name=nameEdit.getText().toString();
+                String birth=birthdayEdit.getYear()+"-"+(birthdayEdit.getMonth()+1)+"-"+birthdayEdit.getDayOfMonth();
+                String email=emailEdit.getText().toString(),wage=wageEdit.getText().toString(),phone=phoneEdit.getText().toString();
+                editor.putString("name",name);
+                editor.putString("birth",birth);
+                editor.putString("email",email);
+                editor.putString("wage",wage);
+                editor.putString("phone",phone);
+                editor.putBoolean("isUsing",true);
+                editor.commit();
+                cancelBtn.performClick();
+            }
+        });
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                nameView.setText(pref.getString("name","null"));
+                companyView.setText(pref.getString("company","null"));
+                birthdayView.setText(pref.getString("birth","null"));
+                phoneView.setText(pref.getString("phone","null"));
+                emailView.setText(pref.getString("email","null"));
+                wageView.setText(pref.getString("wage","null"));
+                nameEdit.setText(pref.getString("name","null"));
+                phoneEdit.setText(pref.getString("phone","null"));
+                emailEdit.setText(pref.getString("email","null"));
+                wageEdit.setText(pref.getString("wage","null"));
+                String date=pref.getString("birth","1900-01-01");
+                String[] dateField=date.split("-");
+                birthdayEdit.updateDate(Integer.valueOf(dateField[0]),Integer.valueOf(dateField[1])-1,Integer.valueOf(dateField[2]));
+                editButton.performClick();
+            }
+        });
     }
     @Override
     protected void onActivityResult(int request,int result,Intent data){

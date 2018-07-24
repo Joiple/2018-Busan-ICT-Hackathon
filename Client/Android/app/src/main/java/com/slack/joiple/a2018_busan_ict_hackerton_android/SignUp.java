@@ -32,13 +32,14 @@ public class SignUp extends AppCompatActivity {
         signUpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String id=idEdit.getText().toString(),password=passEdit.getText().toString(),name=nameEdit.getText().toString();
-                String birth=ageEdit.getYear()+"-"+ageEdit.getMonth()+"-"+ageEdit.getDayOfMonth();
-                String email=emailEdit.getText().toString(),wage=wageEdit.getText().toString(),phone=phoneEdit.getText().toString();
 
                 //TODO send id,name,password,age to server for sign up
                 SharedPreferences pref=getSharedPreferences("user",MODE_PRIVATE);
                 SharedPreferences.Editor editor=pref.edit();
+                String id=idEdit.getText().toString(),password=passEdit.getText().toString(),name=nameEdit.getText().toString();
+                String birth=ageEdit.getYear()+"-"+(ageEdit.getMonth()+1)+"-"+ageEdit.getDayOfMonth();
+                String email=emailEdit.getText().toString(),wage=wageEdit.getText().toString(),phone=phoneEdit.getText().toString();
+
                 editor.putString("id",id);
                 editor.putString("pass",password);
                 editor.putString("name",name);
