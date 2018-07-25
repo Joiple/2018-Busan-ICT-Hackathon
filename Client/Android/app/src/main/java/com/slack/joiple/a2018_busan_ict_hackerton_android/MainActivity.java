@@ -28,8 +28,7 @@ public class MainActivity extends AppCompatActivity {
         option=findViewById(R.id.optionBtn);
         company=findViewById(R.id.companyView);
         recordDetail=findViewById(R.id.recordBtn);
-        pref=getSharedPreferences("user",MODE_PRIVATE);
-        settings=getSharedPreferences("settings",MODE_PRIVATE);
+        loadItems();
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(o,0);
             }
         });
-        company.setText(pref.getString("company","null"));
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(o);
             finish();
         }else if(action.equals("changeComp")){
-            company.setText(pref.getString("compName","null"));
-        }else if(action.equals("end")){
+            loadItems();
+        }else if(action.equals("end")){//TODO check why I set this in else if
 
         }
     }
@@ -115,7 +114,19 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "종료하실려면 한번더 뒤로가기를 누르세요.", Toast.LENGTH_SHORT).show();
         }
     }
-
+    public void loadItems(){
+        pref=getSharedPreferences("user",MODE_PRIVATE);
+        settings=getSharedPreferences("settings",MODE_PRIVATE);
+        String companyName=pref.getString("company","null");
+        company.setText(companyName);
+        if(companyName.equals("null")){
+            register.setVisibility(View.VISIBLE);
+            findViewById(R.id.attendance).setVisibility(View.GONE);
+        }else{
+            register.setVisibility(View.GONE);
+            findViewById(R.id.attendance).setVisibility(View.VISIBLE);
+        }
+    }
 
 
 }

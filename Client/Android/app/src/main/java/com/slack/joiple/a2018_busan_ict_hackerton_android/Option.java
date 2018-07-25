@@ -20,11 +20,9 @@ public class Option extends AppCompatActivity {
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_option);
         g=getIntent();
-        user =getSharedPreferences("user",MODE_PRIVATE);
-        settings=getSharedPreferences("settings",MODE_PRIVATE);
         mainRead=findViewById(R.id.mainReadBtn);
         logOutBtn=findViewById(R.id.logOutBtn);
-        mainRead.setChecked(settings.getBoolean("mode",true));
+        loadItems();
         mainRead.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
@@ -48,5 +46,10 @@ public class Option extends AppCompatActivity {
                 finish();
             }
         });
+    }
+    public void loadItems(){
+        user =getSharedPreferences("user",MODE_PRIVATE);
+        settings=getSharedPreferences("settings",MODE_PRIVATE);
+        mainRead.setChecked(settings.getBoolean("mode",true));
     }
 }
