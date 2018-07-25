@@ -65,7 +65,7 @@ public class Profile extends AppCompatActivity {// information : id password nam
         String date=pref.getString("birth","1900-01-01");
         String[] dateField=date.split("-");
         birthdayEdit.updateDate(Integer.valueOf(dateField[0]),Integer.valueOf(dateField[1])-1,Integer.valueOf(dateField[2]));
-        NetworkManager nw=new NetworkManager(getString(R.string.serverURL));
+        NetworkManager nw=new NetworkManager(getString(R.string.serverURL),"getProfile");
         nw.in.addItem("id",pref.getString("id","null"));
         nw.in.addItem("password",pref.getString("password","null"));
         editButton.setOnClickListener(new View.OnClickListener() {

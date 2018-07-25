@@ -30,6 +30,16 @@ public class PacketConverter {
         ret+="}";
         return ret;
     }
+    public String packWithURL(){
+        String ret="?";
+        Iterator<String> keys = map.keySet().iterator();
+        while ( keys.hasNext() ) {
+            String key = keys.next();
+            ret+=key+"="+map.get(key);
+            if(keys.hasNext())ret+="?";
+        }
+        return ret;
+    }
     public void unPack(String input){
         String data=input.substring(input.indexOf("\"data\":\"{")+"\"data\":\"{".length(),input.indexOf("}\",\"files\""));
         data.replace("'","");

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -50,7 +51,7 @@ public class SignUp extends AppCompatActivity {
                 editor.putBoolean("isUsing",true);
                 editor.commit();
                 String result="null";
-                NetworkManager nm=new NetworkManager(getString(R.string.serverURL));
+                NetworkManager nm=new NetworkManager(getString(R.string.serverURL),"post");
                 
                 nm.in.addItem("id",id);
                 nm.in.addItem("password",password);
@@ -58,10 +59,11 @@ public class SignUp extends AppCompatActivity {
                 nm.in.addItem("birthday",birth);
                 nm.in.addItem("email",email);
                 nm.in.addItem("wage",wage);
-                nm.in.addItem("phone",phone);
+                nm.in.addItem("phone_number",phone);
+                nm.in.addItem("company","");
                 nm.execute();
+                Log.d("result",nm.out.map.toString());
                 o=new Intent(SignUp.this,MainActivity.class);
-
                 startActivity(o);
                 finish();
             }

@@ -27,7 +27,6 @@
     <string name="mainRead">주요 스캔방법</string>
     <string name="profile">프로필</string>
     <string name="records">출퇴근기록</string>
-    <string name="specs">스펙</string>
     <string name="from">시작</string>
     <string name="to">끝</string>
     <string name="wage">임금</string>
@@ -35,5 +34,9 @@
     <string name="phone">전화번호</string>
     <string name="company">회사</string>
     <string name="edit">수정</string>
-    <string name="app_name">Duties</string>
+    <string name="location">실주소</string>
+    <string name="address">홈페이지주소</string>
+    <string name="crn">사업자등록번호</string>
+    <string name="introduction">소개</string>
+    <string name="add">추가</string>
 </resources>

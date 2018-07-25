@@ -38,7 +38,7 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View view) {
                 String id=idEdit.getText().toString();
                 String password=passEdit.getText().toString();
-                NetworkManager nw=new NetworkManager(getString(R.string.serverURL));
+                NetworkManager nw=new NetworkManager(getString(R.string.serverURL),"login");
                 nw.in.addItem("id",id);
                 nw.in.addItem("password",password);
                 nw.execute();
