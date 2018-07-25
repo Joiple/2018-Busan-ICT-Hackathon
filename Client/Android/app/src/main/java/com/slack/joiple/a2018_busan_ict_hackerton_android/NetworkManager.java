@@ -12,14 +12,23 @@ import java.net.URL;
 
 public class NetworkManager extends AsyncTask<String, Void, Void> {
     String url;
+    public boolean isReceived=false;
     public PacketConverter in,out;
-    public NetworkManager(String url){
-        this.url=url;
+    public NetworkManager(String url,String action){
+        this.url=url+"/"+action;
         in=new PacketConverter();
         out=new PacketConverter();
     }
-    public void execute(){
+    public boolean execute(){
+        boolean ret=false;
         this.execute(in.pack());
+        while(!isReceived){
+            continue;
+        }
+        if(out.getItem("return").equals("suc")){
+            ret=true;
+        }
+        return ret;
     }
     @Override
     public Void doInBackground(String... params) {
@@ -40,7 +49,7 @@ public class NetworkManager extends AsyncTask<String, Void, Void> {
             os.write( outputInBytes );
             os.close();
             int retCode = conn.getResponseCode();
-            Log.d("responseCode",conn.getResponseMessage());
+            Log.d("responseCode",""+retCode);
             InputStream is = conn.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             String line;
@@ -51,6 +60,8 @@ public class NetworkManager extends AsyncTask<String, Void, Void> {
             }
             br.close();
             out.unPack(response.toString());
+
+            isReceived=true;
         } catch (Exception e) {
             e.printStackTrace();
         }

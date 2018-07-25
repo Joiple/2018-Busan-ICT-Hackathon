@@ -2,7 +2,6 @@ package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Network;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.TransitionManager;
@@ -12,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -26,7 +26,6 @@ public class Profile extends AppCompatActivity {// information : id password nam
     boolean isEditing=false;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
-
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_profile);
         nameView=findViewById(R.id.nameView);
@@ -65,7 +64,7 @@ public class Profile extends AppCompatActivity {// information : id password nam
         String date=pref.getString("birth","1900-01-01");
         String[] dateField=date.split("-");
         birthdayEdit.updateDate(Integer.valueOf(dateField[0]),Integer.valueOf(dateField[1])-1,Integer.valueOf(dateField[2]));
-        NetworkManager nw=new NetworkManager(getString(R.string.serverURL));
+        NetworkManager nw=new NetworkManager(getString(R.string.serverURL),"getProfile");
         nw.in.addItem("id",pref.getString("id","null"));
         nw.in.addItem("password",pref.getString("password","null"));
         editButton.setOnClickListener(new View.OnClickListener() {
