@@ -48,7 +48,8 @@ public class CompanyAdder extends AppCompatActivity {
                         editor.putString("compAddress", compAddress);
                 }else{
                     //TODO get errCode from server
-                    status.setText("");
+                    status.setVisibility(View.VISIBLE);
+                    status.setText("error occurred. please check your data.");
                 }
             }
         });
