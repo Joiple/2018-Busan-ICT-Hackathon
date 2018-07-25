@@ -66,7 +66,7 @@ def login():
             'password' : hasher.hexdigest()}
     check = db.login(info)
     if check == 1:
-        return "hello {}".format(request.form['id'])
+        return "suc"
     else:
         return "fail"
 
@@ -84,8 +84,9 @@ def get_info(flag,addr):
         info = db.get_info(flag,company_id = addr)
         return info
 
-
-    #return json.dumps(info, indent=2, ensure_ascii=False)
+    elif flag == '12': # 특정 회사의 근무기록 전부
+        info = db.get_info(flag,company_id = addr)
+        return info
 
 @app.route('/comlogin', methods = ['POST','GET'])
 def comlogin():
