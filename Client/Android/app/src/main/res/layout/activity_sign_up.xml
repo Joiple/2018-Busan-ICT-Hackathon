@@ -17,9 +17,8 @@
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:scrollbars="vertical"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +26,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal">
+                android:layout_height="wrap_content">
 
                 <TextView
                     android:id="@+id/textView"
@@ -42,16 +40,7 @@
                     android:id="@+id/idEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
-            </android.support.constraint.ConstraintLayout>
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical|center_horizontal">
+                    android:layout_gravity="center_vertical|center_horizontal" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -125,8 +114,7 @@
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical|center_horizontal"
-                tools:layout_editor_absoluteY="46dp">
+                android:layout_gravity="center_vertical|center_horizontal">
 
                 <TextView
                     android:id="@+id/textView7"
@@ -153,8 +141,7 @@
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical|center_horizontal"
-                tools:layout_editor_absoluteY="46dp">
+                android:layout_gravity="center_vertical|center_horizontal">
 
                 <TextView
                     android:id="@+id/textView5"
@@ -179,8 +166,7 @@
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical|center_horizontal"
-                tools:layout_editor_absoluteY="46dp">
+                android:layout_gravity="center_vertical|center_horizontal">
 
                 <TextView
                     android:id="@+id/textView6"
@@ -206,7 +192,6 @@
                 android:id="@+id/signUpBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:layout_marginTop="8dp"
                 android:text="@string/signUp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -217,14 +202,11 @@
                 android:id="@+id/cancelBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
                 android:text="@android:string/cancel"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/signUpBtn" />
         </LinearLayout>
     </ScrollView>
-
-
 
 </android.support.constraint.ConstraintLayout>

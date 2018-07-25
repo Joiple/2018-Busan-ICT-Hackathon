@@ -2,7 +2,6 @@ package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Network;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.TransitionManager;
@@ -12,6 +11,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
@@ -26,7 +26,6 @@ public class Profile extends AppCompatActivity {// information : id password nam
     boolean isEditing=false;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
-
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_profile);
         nameView=findViewById(R.id.nameView);
