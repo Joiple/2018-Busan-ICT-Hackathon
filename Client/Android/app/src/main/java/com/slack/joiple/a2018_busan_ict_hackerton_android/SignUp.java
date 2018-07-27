@@ -87,7 +87,8 @@ public class SignUp extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-        long tempTime = System.currentTimeMillis();
+        super.onBackPressed();
+        /*long tempTime = System.currentTimeMillis();
         long intervalTime = tempTime - backPressedTime;
 
         if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
@@ -98,6 +99,6 @@ public class SignUp extends AppCompatActivity {
         {
             backPressedTime = tempTime;
             Toast.makeText(getApplicationContext(), "종료하실려면 한번더 뒤로가기를 누르세요.", Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 }
