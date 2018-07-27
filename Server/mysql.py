@@ -77,6 +77,13 @@ class sql:
                 else:
                     return 1
 
+        if int(flag) == 12:
+            sql = "SELECT * FROM inout_log WHERE company_id = '{}'".format(company_id)
+            with self.connection.cursor() as cursor:
+                cursor.execute(sql)
+                result = cursor.fetchall()
+                return result
+
     def login(self, info):
         sql = "SELECT password FROM user WHERE id = '{}'".format(info['id'])
         with self.connection.cursor() as cursor:
