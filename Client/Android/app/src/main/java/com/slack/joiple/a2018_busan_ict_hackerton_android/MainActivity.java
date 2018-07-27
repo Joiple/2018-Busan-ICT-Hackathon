@@ -3,9 +3,12 @@ package com.slack.joiple.a2018_busan_ict_hackerton_android;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.constraint.Constraints;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     Intent o,g;
     Button register,start,end,option,profile,recordDetail;
     TextView company;
+    LinearLayout attLayout;
+    TextView[] times,events;
     SharedPreferences pref,settings;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
@@ -28,7 +33,29 @@ public class MainActivity extends AppCompatActivity {
         option=findViewById(R.id.optionBtn);
         company=findViewById(R.id.companyView);
         recordDetail=findViewById(R.id.recordBtn);
+        attLayout=findViewById(R.id.recordLayout);
         loadItems();
+        times=new TextView[5];
+        events=new TextView[5];
+        NetworkManager nm=new NetworkManager(getString(R.string.serverURL),"post");//TODO change action properly for getting attendance records
+        nm.in.addItem("number","5");
+        //nm.execute();
+        for(int i=0;i<5;i++){
+            LinearLayout tmpLayout=new LinearLayout(this);
+            tmpLayout.setOrientation(LinearLayout.HORIZONTAL);
+            tmpLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+            times[i]=new TextView(this);
+            times[i].setText("times"+i);
+            times[i].setGravity(Gravity.START);
+            times[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,1));
+            events[i]=new TextView(this);
+            events[i].setText("events"+i);
+            events[i].setGravity(Gravity.END);
+            events[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,1));
+            tmpLayout.addView(times[i]);
+            tmpLayout.addView(events[i]);
+            attLayout.addView(tmpLayout);
+        }
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,7 +123,6 @@ public class MainActivity extends AppCompatActivity {
         }else if(action.equals("changeComp")){
             loadItems();
         }else if(action.equals("end")){//TODO check why I set this in else if
-
         }
     }
     @Override

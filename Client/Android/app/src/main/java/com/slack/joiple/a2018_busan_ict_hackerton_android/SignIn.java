@@ -44,7 +44,8 @@ public class SignIn extends AppCompatActivity {
                 NetworkManager nw=new NetworkManager(getString(R.string.serverURL),"login");
                 nw.in.addItem("id",id);
                 nw.in.addItem("password",password);
-                nw.execute();
+                nw.out.addItem("check","true");
+                //nw.execute();
 
 
                 if(nw.out.getItem("check").equals("true")){//TODO get check value
