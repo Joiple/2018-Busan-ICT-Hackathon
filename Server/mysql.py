@@ -55,15 +55,29 @@ class sql:
         return 1
 
     def get_info(self, flag, **kwargs):
+        # flag : 1 = user_profile, 2 = company_profile, 3 = inout_log via user, 4 = inout_log via company
         # flag : 10 = salt, 11 = qr,nfc inout code
-        if int(flag) == 10:
+        if flag == '1':
+            sql = "SELECT name, phone_number, birthday, email FROM user WHERE id='{}'".format(kwargs['user_id'])
+
+        elif flag == '2':
+            sql = "SELECT * FROM company WHERE id='{}'".format(kwargs['company_id'])
+
+        elif flag == '3':
+            sql = "SELECT * FROM inout_log WHERE user_id='{}'".format(kwargs['user_id'])
+
+        elif flag == '4':
+            sql = "SELECT * FROM inout_log WHERE company_id='{}'".format(kwargs['company_id'])
+
+
+        elif flag == '10':
             sql = "SELECT salt FROM user WHERE id='{}'".format(kwargs['id'])
             with self.connection.cursor() as cursor:
                 cursor.execute(sql)
                 result = cursor.fetchall()
                 return result[0]['salt']
 
-        if int(flag) == 11:
+        elif flag == '11':
             sql = "SELECT inoutcode FROM company WHERE address='{}'".format(kwargs['company_id'])
             with self.connection.cursor() as cursor:
                 cursor.execute(sql)
@@ -77,7 +91,7 @@ class sql:
                 else:
                     return 1
 
-        if int(flag) == 12:
+        if flag == '12':
             sql = "SELECT * FROM inout_log WHERE company_id = '{}'".format(company_id)
             with self.connection.cursor() as cursor:
                 cursor.execute(sql)
