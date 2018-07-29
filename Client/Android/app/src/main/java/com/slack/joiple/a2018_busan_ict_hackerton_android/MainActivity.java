@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     TextView company;
     LinearLayout attLayout;
     TextView[] times,events;
-    SharedPreferences pref,settings;
+    SharedPreferences user,settings,comp;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
     @Override
@@ -141,9 +141,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void loadItems(){
-        pref=getSharedPreferences("user",MODE_PRIVATE);
+        user=getSharedPreferences("user",MODE_PRIVATE);
         settings=getSharedPreferences("settings",MODE_PRIVATE);
-        String companyName=pref.getString("company","null");
+        String companyName=getSharedPreferences("comp",MODE_PRIVATE).getString("name","null");
         company.setText(companyName);
         if(companyName.equals("null")){
             register.setVisibility(View.VISIBLE);

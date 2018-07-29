@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class CompanyProfile extends AppCompatActivity {
-    Intent o;
-    SharedPreferences pref;
     TextView nameView,locationView,addressView,crnView,introductionView;
     EditText nameEdit,locationEdit,addressEdit,crnEdit,introductionEdit;
     Button editBtn,confirmBtn,cancelBtn,backBtn;
@@ -45,13 +43,16 @@ public class CompanyProfile extends AppCompatActivity {
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nm=new NetworkManager(getString(R.string.serverURL),"post");//TODO change proper action
-                nm.in.addItem("name",nameEdit.getText().toString());
-                nm.in.addItem("address",addressEdit.getText().toString());
-                nm.in.addItem("location",locationEdit.getText().toString());
-                nm.in.addItem("crn",crnEdit.getText().toString());
-                nm.in.addItem("introduction",introductionEdit.getText().toString());
+                //TODO change proper action nm=new NetworkManager(getString(R.string.serverURL),"post");
+                SharedPreferences.Editor edit=getSharedPreferences("comp",MODE_PRIVATE).edit();
+                edit.putString("name",nameEdit.getText().toString());
+                edit.putString("address",addressEdit.getText().toString());
+                edit.putString("location",locationEdit.getText().toString());
+                edit.putString("crn",crnEdit.getText().toString());
+                edit.putString("introduction",introductionEdit.getText().toString());
+                edit.commit();
                 //nm.execute();
+                
                 changed=true;
                 setTextsOnNetwork();
                 layoutViewMode();
