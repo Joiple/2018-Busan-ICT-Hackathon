@@ -39,4 +39,7 @@
     <string name="crn">사업자등록번호</string>
     <string name="introduction">소개</string>
     <string name="add">추가</string>
+    <string name="search">조회</string>
+    <string name="back">나가기</string>
+    <string name="compProfile">회사 프로필</string>
 </resources>

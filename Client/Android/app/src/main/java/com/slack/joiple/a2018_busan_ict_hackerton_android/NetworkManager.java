@@ -36,7 +36,7 @@ public class NetworkManager extends AsyncTask<String, Void, Void> {
 
             URL obj = new URL(url);
             HttpURLConnection conn = (HttpURLConnection) obj.openConnection();
-
+            //conn.setRequestProperty("User-agent","");
             conn.setReadTimeout(10000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");

@@ -11,13 +11,13 @@ public class Initial extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle saveInstanceBundle){
+        super.onCreate(saveInstanceBundle);
+        this.setContentView(R.layout.activity_initial);
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        super.onCreate(saveInstanceBundle);
-        this.setContentView(R.layout.activity_initial);
         pref=getSharedPreferences("user",MODE_PRIVATE);
         boolean isUsing=pref.getBoolean("isUsing",false);
         if(isUsing){

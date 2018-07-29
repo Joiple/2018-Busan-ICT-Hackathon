@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Duties</string>
     <string name="nfcIconDescription">Icon_NFC</string>
@@ -39,4 +40,7 @@
     <string name="crn">crn</string>
     <string name="introduction">introduction</string>
     <string name="add">add</string>
+    <string name="search">search</string>
+    <string name="back">Back</string>
+    <string name="compProfile">Company Profile</string>
 </resources>
