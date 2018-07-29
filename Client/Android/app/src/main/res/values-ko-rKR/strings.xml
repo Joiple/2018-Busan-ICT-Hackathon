@@ -40,4 +40,5 @@
     <string name="introduction">소개</string>
     <string name="add">추가</string>
     <string name="search">조회</string>
+    <string name="back">나가기</string>
 </resources>

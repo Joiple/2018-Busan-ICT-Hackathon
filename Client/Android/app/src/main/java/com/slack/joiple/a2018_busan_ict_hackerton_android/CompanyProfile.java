@@ -75,6 +75,9 @@ public class CompanyProfile extends AppCompatActivity {
         nm=new NetworkManager(getString(R.string.serverURL),"post");//TODO change action properly
         nm.in.addItem("code","");
         //nm.execute();
+        //
+        
+        //
         String name=nm.out.getItem("name");
         String location=nm.out.getItem("location");
         String address=nm.out.getItem("name");
