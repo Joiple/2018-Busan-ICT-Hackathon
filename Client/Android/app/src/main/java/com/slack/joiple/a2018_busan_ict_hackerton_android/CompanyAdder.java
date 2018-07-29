@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class CompanyAdder extends AppCompatActivity {
     NetworkManager manager;
     EditText name,address,number,description,location;
-    Button searchBtn;
+    Button addBtn,cancelBtn;
     TextView status;
     String networkReturn="";
     @Override
@@ -25,9 +25,10 @@ public class CompanyAdder extends AppCompatActivity {
         description=findViewById(R.id.introductionEdit);
         location=findViewById(R.id.locationEdit);
 
-        searchBtn=findViewById(R.id.searchBtn);
+        addBtn=findViewById(R.id.addBtn);
+        cancelBtn=findViewById(R.id.cancelBtn);
 
-        searchBtn.setOnClickListener(new View.OnClickListener() {
+        addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String compName=name.getText().toString(),
@@ -41,11 +42,18 @@ public class CompanyAdder extends AppCompatActivity {
                 manager.in.addItem("address",compAddress);
                 manager.in.addItem("crn",compCrn);
                 manager.in.addItem("introduction",compIntroduction);
-                if(manager.execute()){//TODO checking company adding
-                        SharedPreferences pref = getSharedPreferences("user", MODE_PRIVATE);
+                if(true){//TODO checking company adding->manager.execute()
+                        SharedPreferences pref = getSharedPreferences("comp", MODE_PRIVATE);
                         SharedPreferences.Editor editor = pref.edit();
-                        editor.putString("compName", compName);
-                        editor.putString("compAddress", compAddress);
+                        editor.putString("name", compName);
+                        editor.putString("address", compAddress);
+                        editor.putString("crn",compCrn);
+                        editor.putString("location",compCrn);
+                        editor.putString("introduction",compIntroduction);
+                        editor.putBoolean("isHost",true);
+                        editor.commit();
+                        setResult(RESULT_OK);
+                        finish();
                 }else{
                     //TODO get errCode from server
                     status.setVisibility(View.VISIBLE);
@@ -53,6 +61,11 @@ public class CompanyAdder extends AppCompatActivity {
                 }
             }
         });
-
+        cancelBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
     }
 }

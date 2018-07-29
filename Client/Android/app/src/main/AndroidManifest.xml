@@ -50,7 +50,9 @@
 		<activity android:name=".CompanyAdder">
 
 		</activity>
+		<activity android:name=".CompanyProfile">
 
+		</activity>
 		<service android:name=".NfcService"
 			android:exported="true"
 			android:permission="android.permission.Bind_NFC_SERVICE">

@@ -16,10 +16,11 @@ public class CompanyProfile extends AppCompatActivity {
     EditText nameEdit,locationEdit,addressEdit,crnEdit,introductionEdit;
     Button editBtn,confirmBtn,cancelBtn,backBtn;
     NetworkManager nm;
+    boolean changed=false;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
-        this.setContentView(R.layout.activity_add_company);
+        this.setContentView(R.layout.activity_company_profile);
 
         nameView=findViewById(R.id.nameView);
         locationView=findViewById(R.id.locationView);
@@ -50,7 +51,8 @@ public class CompanyProfile extends AppCompatActivity {
                 nm.in.addItem("location",locationEdit.getText().toString());
                 nm.in.addItem("crn",crnEdit.getText().toString());
                 nm.in.addItem("introduction",introductionEdit.getText().toString());
-                nm.execute();
+                //nm.execute();
+                changed=true;
                 setTextsOnNetwork();
                 layoutViewMode();
             }
@@ -71,20 +73,33 @@ public class CompanyProfile extends AppCompatActivity {
         setTextsOnNetwork();
 
     }
+
+    @Override
+    public void onBackPressed(){
+        if(changed){
+            setResult(RESULT_OK);
+        }
+        super.onBackPressed();
+    }
     public void setTextsOnNetwork(){
         nm=new NetworkManager(getString(R.string.serverURL),"post");//TODO change action properly
         nm.in.addItem("code","");
         //nm.execute();
         //
-        
+        SharedPreferences preff=getSharedPreferences("comp",MODE_PRIVATE);
+        nm.out.addItem("name",preff.getString("name","null"));
+        nm.out.addItem("location",preff.getString("location","null"));
+        nm.out.addItem("address",preff.getString("address","null"));
+        nm.out.addItem("crn",preff.getString("crn","null"));
+        nm.out.addItem("introduction",preff.getString("introduction","null"));
         //
         String name=nm.out.getItem("name");
         String location=nm.out.getItem("location");
-        String address=nm.out.getItem("name");
-        String crn=nm.out.getItem("name");
-        String introduction=nm.out.getItem("name");
+        String address=nm.out.getItem("address");
+        String crn=nm.out.getItem("crn");
+        String introduction=nm.out.getItem("introduction");
         nameView.setText(name);
-        nameView.setText(name);
+        nameEdit.setText(name);
         locationView.setText(location);
         locationEdit.setText(location);
         addressView.setText(address);
