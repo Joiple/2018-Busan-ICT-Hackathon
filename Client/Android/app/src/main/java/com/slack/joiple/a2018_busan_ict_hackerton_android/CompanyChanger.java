@@ -60,16 +60,14 @@ public class CompanyChanger extends AppCompatActivity {
 
             }
         });
-
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 editor = user.edit();
                 editor.putBoolean("isUsing", false);
                 editor.commit();
-                o = new Intent(CompanyChanger.this, SignIn.class);
-                startActivity(o);
+                g = new Intent(CompanyChanger.this, SignIn.class);
+                startActivity(g);
                 finish();
             }
         });

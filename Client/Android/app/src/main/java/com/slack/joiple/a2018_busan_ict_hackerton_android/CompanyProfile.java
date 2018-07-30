@@ -7,14 +7,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CompanyProfile extends AppCompatActivity {
     Intent o;
-    SharedPreferences pref;
+    SharedPreferences user,pref;
+    SharedPreferences.Editor editor;
     TextView nameView,locationView,addressView,crnView,introductionView;
     EditText nameEdit,locationEdit,addressEdit,crnEdit,introductionEdit;
     Button editBtn,confirmBtn,cancelBtn,backBtn;
+    ImageButton option,start,end,status,logout,menu,logofont;
+
     NetworkManager nm;
     boolean changed=false;
     @Override
@@ -72,8 +76,44 @@ public class CompanyProfile extends AppCompatActivity {
         });
         setTextsOnNetwork();
 
-    }
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                editor= user.edit();
+                editor.putBoolean("isUsing",false);
+                editor.commit();
+                o=new Intent(CompanyProfile.this,SignIn.class);
+                startActivity(o);
+                finish();
+            }
+        });
+        option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(CompanyProfile.this,Option.class);
+                startActivityForResult(o,0);
+            }
+        });
+        logofont.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view){
+                o=new Intent(CompanyProfile.this,MainActivity.class);
+                startActivityForResult(o,0);
+                setResult(RESULT_OK);
+                finish();
+
+            }
+        });
+    }
+    @Override
+    public void onActivityResult(int request,int result,Intent data){
+        switch(request){
+            case 0:
+                if(result==RESULT_OK) finish();
+                break;
+        }
+    }
     @Override
     public void onBackPressed(){
         if(changed){
