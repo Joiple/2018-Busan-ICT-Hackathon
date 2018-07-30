@@ -78,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 editor= user.edit();
                 editor.putBoolean("isUsing",false);
                 editor.commit();
-                o=new Intent("logout");
-                setResult(RESULT_OK,o);
+                o=new Intent(MainActivity.this,SignIn.class);
+                startActivity(o);
                 finish();
             }
         });
