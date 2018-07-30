@@ -42,14 +42,15 @@
 
         <ImageButton
             android:id="@+id/logofontBtn"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/colortrans"
+            android:scaleType="fitXY"
             app:layout_constraintEnd_toStartOf="@+id/statusBtn"
             app:layout_constraintHorizontal_bias="0.866"
             app:layout_constraintStart_toEndOf="@+id/slideBtn"
             app:srcCompat="@drawable/logofont"
-            android:layout_width="200dp"
-            android:layout_height="0dp"
-            android:background="@color/colortrans"
-            android:scaleType="fitXY"
             tools:layout_editor_absoluteY="0dp" />
 
         <ImageButton
@@ -173,19 +174,39 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName" />
+
             </android.support.constraint.ConstraintLayout>
 
-            <Button
-                android:id="@+id/addBtn"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/add" />
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/cancelBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@android:string/cancel" />
+                <Button
+                    android:id="@+id/addBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colortrans"
+                    android:elevation="0dp"
+                    android:text="@string/add"
+                    android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#6ebfcc"/>
+
+                <Button
+                    android:id="@+id/cancelBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/colortrans"
+                    android:text="@android:string/cancel"
+                  android:textStyle="bold"
+                    android:textSize="20dp"
+                    android:textColor="#258899"/>
+
+            </LinearLayout>
+
         </LinearLayout>
     </ScrollView>
 

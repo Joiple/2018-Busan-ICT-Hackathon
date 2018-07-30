@@ -6,4 +6,10 @@
     <color name="errorColor">#FF0000</color>
     <color name="colorBackground">#8edebd</color>
     <color name="colortrans">#000000ff</color>
+    <color name="Btn">#6ebfcc</color>
+    <color name="clearBtn">#258899</color>
+    <color name="white">#FFFFFF</color>
+    <color name="mintBtn">#A9E4DF</color>
+    <color name="GreenBtn">#A9E4CC</color>
+
 </resources>

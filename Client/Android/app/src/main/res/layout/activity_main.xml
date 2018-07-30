@@ -71,9 +71,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:id="@+id/mainLayout"
@@ -81,14 +82,34 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/companyView"
+            <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView"
-                tools:layout_editor_absoluteX="171dp"
-                tools:layout_editor_absoluteY="237dp" />
+                android:layout_height="251dp">
+
+                <ImageButton
+                    android:id="@+id/workingBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:background="@color/colortrans"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toStartOf="@+id/stopworkingBtn"
+                    app:srcCompat="@drawable/working" />
+
+                <ImageButton
+                    android:id="@+id/stopworkingBtn"
+                    android:layout_width="192dp"
+                    android:layout_height="193dp"
+                    android:layout_weight="1"
+                    android:background="@color/colortrans"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/stopworking2" />
+            </android.support.constraint.ConstraintLayout>
 
             <Button
                 android:id="@+id/changeCompBtn"
@@ -123,12 +144,14 @@
                     android:text="@string/endWork" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/profileBtn"
+            <TextView
+                android:id="@+id/companyView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/profile" />
+                android:text="TextView"
+                tools:layout_editor_absoluteX="171dp"
+                tools:layout_editor_absoluteY="237dp" />
 
             <android.support.constraint.ConstraintLayout
                 android:id="@+id/attendanceLayout"
@@ -174,13 +197,6 @@
                 </LinearLayout>
 
             </android.support.constraint.ConstraintLayout>
-
-            <Button
-                android:id="@+id/optionBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/option" />
 
         </LinearLayout>
     </ScrollView>

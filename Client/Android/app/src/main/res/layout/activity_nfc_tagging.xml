@@ -19,8 +19,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
+            android:background="@color/white"
             android:contentDescription="@string/nfcIconDescription"
-            app:srcCompat="@drawable/nfc" />
+            app:srcCompat="@drawable/nfc2" />
 
         <Button
             android:id="@+id/cancelBtn"

@@ -35,6 +35,7 @@ public class AttendanceView extends AppCompatActivity {
             tmpLayout.addView(times);
             tmpLayout.addView(events);
             resultLayout.addView(tmpLayout);
+
         }
     }
 }
