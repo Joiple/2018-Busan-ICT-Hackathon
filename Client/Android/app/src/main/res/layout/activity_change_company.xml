@@ -46,7 +46,7 @@
             app:layout_constraintHorizontal_bias="0.866"
             app:layout_constraintStart_toEndOf="@+id/slideBtn"
             app:srcCompat="@drawable/logofont"
-            tools:layout_editor_absoluteY="0dp" />
+            />
 
         <ImageButton
             android:id="@+id/statusBtn"

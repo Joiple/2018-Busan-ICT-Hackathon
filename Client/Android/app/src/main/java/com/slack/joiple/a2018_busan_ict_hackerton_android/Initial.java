@@ -13,11 +13,7 @@ public class Initial extends AppCompatActivity {
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_initial);
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
         pref=getSharedPreferences("user",MODE_PRIVATE);
         boolean isUsing=pref.getBoolean("isUsing",false);
         if(isUsing){
@@ -26,6 +22,11 @@ public class Initial extends AppCompatActivity {
         }else{
             o=new Intent(Initial.this,SignIn.class);
             startActivity(o);
+        }
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         finish();
 

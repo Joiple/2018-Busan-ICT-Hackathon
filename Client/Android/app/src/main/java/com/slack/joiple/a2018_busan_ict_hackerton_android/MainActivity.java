@@ -8,13 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Intent o,g;
-    Button register,start,end,option,profile,recordDetail;
+    Button register,start,end,recordDetail;
+    ImageButton option;
     TextView company;
     LinearLayout attLayout;
     TextView[] times,events;
@@ -29,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
         register=findViewById(R.id.changeCompBtn);
         start=findViewById(R.id.workBtn);
         end=findViewById(R.id.offBtn);
-        profile=findViewById(R.id.profileBtn);
         option=findViewById(R.id.optionBtn);
         company=findViewById(R.id.companyView);
         recordDetail=findViewById(R.id.recordBtn);
@@ -94,13 +95,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 o=new Intent(MainActivity.this,AttendanceView.class);
-                startActivity(o);
-            }
-        });
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                o=new Intent(MainActivity.this,Profile.class);
                 startActivity(o);
             }
         });
