@@ -78,6 +78,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="fill_vertical"
             android:orientation="vertical">
 
             <android.support.constraint.ConstraintLayout
@@ -89,14 +90,20 @@
                     android:id="@+id/nameView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/name" />
+                    android:text="@string/name"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="0dp" />
 
                 <EditText
                     android:id="@+id/nameEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -109,14 +116,20 @@
                     android:id="@+id/locationView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/location" />
+                    android:text="@string/location"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="0dp" />
 
                 <EditText
                     android:id="@+id/locationEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -128,14 +141,20 @@
                     android:id="@+id/addressView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/address" />
+                    android:text="@string/address"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="0dp" />
 
                 <EditText
                     android:id="@+id/addressEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -147,14 +166,20 @@
                     android:id="@+id/crnView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/crn" />
+                    android:text="@string/crn"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="0dp" />
 
                 <EditText
                     android:id="@+id/crnEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
             </android.support.constraint.ConstraintLayout>
 
             <android.support.constraint.ConstraintLayout
@@ -166,14 +191,20 @@
                     android:id="@+id/introductionView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/introduction" />
+                    android:text="@string/introduction"
+                    tools:layout_editor_absoluteX="85dp"
+                    tools:layout_editor_absoluteY="0dp" />
 
                 <EditText
                     android:id="@+id/introductionEdit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
             </android.support.constraint.ConstraintLayout>
 
@@ -190,9 +221,9 @@
                     android:background="@color/colortrans"
                     android:elevation="0dp"
                     android:text="@string/add"
-                    android:textStyle="bold"
+                    android:textColor="#6ebfcc"
                     android:textSize="20dp"
-                    android:textColor="#6ebfcc"/>
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/cancelBtn"
@@ -201,9 +232,9 @@
                     android:layout_weight="1"
                     android:background="@color/colortrans"
                     android:text="@android:string/cancel"
-                  android:textStyle="bold"
+                    android:textColor="@color/rose"
                     android:textSize="20dp"
-                    android:textColor="#258899"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

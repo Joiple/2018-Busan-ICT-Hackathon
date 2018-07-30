@@ -49,6 +49,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
+            android:textColor="@color/Btn"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:background="@color/colortrans"
             android:text="@string/send" />
 
         <Button
@@ -56,20 +60,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="@string/rescan" />
+            android:background="@color/colortrans"
+            android:text="@string/rescan"
+            android:textColor="@color/Btn"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/nfcModeBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="@string/nfcMode" />
+            android:background="@color/colortrans"
+            android:text="@string/nfcMode"
+            android:textColor="@color/org1"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/cancelBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="@android:string/cancel" />
+            android:text="@android:string/cancel"
+            android:background="@color/colortrans"
+            android:textColor="@color/rose"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>
