@@ -112,6 +112,36 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/nameTooltip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/name"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/nameEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:visibility="gone"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTooltip" />
+
+                <TextView
+                    android:id="@+id/nameView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/nameTooltip" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -204,36 +234,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/nameTooltip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/name"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <EditText
-                    android:id="@+id/nameEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:visibility="gone"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nameTooltip" />
-
-                <TextView
-                    android:id="@+id/nameView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/nameTooltip" />
-            </android.support.constraint.ConstraintLayout>
-
-            <android.support.constraint.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
                     android:id="@+id/companyTooltip"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -267,7 +267,11 @@
                     android:id="@+id/compProfileBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@color/colortrans"
                     android:text="@string/compProfile"
+                    android:textColor="@color/colorBackground"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -276,7 +280,11 @@
                     android:id="@+id/changeCompBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:background="@color/colortrans"
                     android:text="@string/changeCompany"
+                    android:textColor="@color/colorBackground"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -287,6 +295,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@android:string/ok"
+                android:background="@color/colortrans"
+                android:textColor="@color/Btn"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 android:visibility="gone" />
 
             <Button
@@ -294,13 +306,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@android:string/cancel"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:background="@color/colortrans"
+                android:textColor="@color/rose"
+                android:textSize="20dp"
+                android:textStyle="bold"/>
 
             <Button
                 android:id="@+id/editBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/edit" />
+                android:background="@color/colortrans"
+                android:text="@string/edit"
+                android:textColor="@color/Btn"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

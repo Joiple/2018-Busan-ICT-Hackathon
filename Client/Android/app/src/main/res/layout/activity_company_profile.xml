@@ -255,6 +255,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/colortrans"
+                android:textColor="@color/Btn"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 android:text="@android:string/ok"
                 android:visibility="gone" />
 
@@ -263,6 +267,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/colortrans"
+                android:textColor="@color/rose"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 android:text="@android:string/cancel"
                 android:visibility="gone" />
 
@@ -271,6 +279,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/colortrans"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/Btn"
                 android:text="@string/edit" />
 
             <Button
@@ -278,6 +290,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/colortrans"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:textColor="@color/clearBtn"
                 android:text="@string/back" />
 
         </LinearLayout>

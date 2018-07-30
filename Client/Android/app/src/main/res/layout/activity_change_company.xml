@@ -105,6 +105,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/send"
+                android:background="@color/colortrans"
+                android:textColor="@color/Btn"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -126,13 +130,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/registerCompany" />
+            android:text="@string/registerCompany"
+            android:background="@color/colortrans"
+            android:textColor="@color/Btn"
+            android:textSize="20dp"
+            android:textStyle="bold"/>
 
         <Button
             android:id="@+id/cancelBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/colortrans"
+            android:textColor="@color/rose"
+            android:textSize="20dp"
+            android:textStyle="bold"
             android:text="@android:string/cancel" />
 
     </LinearLayout>
