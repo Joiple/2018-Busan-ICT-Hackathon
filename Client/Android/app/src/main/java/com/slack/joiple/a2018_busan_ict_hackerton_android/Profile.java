@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ public class Profile extends AppCompatActivity {// information : id password nam
     Button changeComp,editButton,okBtn,cancelBtn,compProfileBtn;
     TextView nameView,companyView,birthdayView,phoneView,emailView,wageView;
     EditText nameEdit,phoneEdit,emailEdit,wageEdit;
+    ImageButton logout, menu, option, logofont;
     DatePicker birthdayEdit;
     Intent o,g;
     SharedPreferences pref;
@@ -35,12 +37,17 @@ public class Profile extends AppCompatActivity {// information : id password nam
         emailView=findViewById(R.id.emailView);
         wageView=findViewById(R.id.wageView);
         nameEdit=findViewById(R.id.nameEdit);
+        logout=findViewById(R.id.logoutBtn);
+        menu=findViewById(R.id.slideBtn);
+        option=findViewById(R.id.statusBtn);
+        logofont=findViewById(R.id.logofontBtn);
         birthdayEdit=findViewById(R.id.birthEdit);
         phoneEdit=findViewById(R.id.phoneEdit);
         emailEdit=findViewById(R.id.emailEdit);
         wageEdit=findViewById(R.id.wageEdit);
         editButton=findViewById(R.id.editBtn);
         okBtn=findViewById(R.id.modBtn);
+
         cancelBtn=findViewById(R.id.cancelModBtn);
         changeComp=findViewById(R.id.changeCompBtn);
         compProfileBtn=findViewById(R.id.compProfileBtn);
