@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         register=findViewById(R.id.changeCompBtn);
         start=findViewById(R.id.workBtn);
         end=findViewById(R.id.offBtn);
-        option=findViewById(R.id.optionBtn);
+        option=findViewById(R.id.statusBtn);
         company=findViewById(R.id.companyView);
         recordDetail=findViewById(R.id.recordBtn);
         attLayout=findViewById(R.id.recordLayout);
