@@ -1,16 +1,24 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class AttendanceView extends AppCompatActivity {
     LinearLayout resultLayout;
+    ImageButton logout, menu, option, logofont;
+    Intent o;
+
+    SharedPreferences user;
+    SharedPreferences.Editor editor;
 
     @Override
     public void onCreate(Bundle saveInstanceBundle) {
@@ -36,6 +44,43 @@ public class AttendanceView extends AppCompatActivity {
             tmpLayout.addView(events);
             resultLayout.addView(tmpLayout);
 
+        }
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                editor= user.edit();
+                editor.putBoolean("isUsing",false);
+                editor.commit();
+                o=new Intent(AttendanceView.this,SignIn.class);
+                startActivity(o);
+                finish();
+            }
+        });
+        option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(AttendanceView.this,Option.class);
+                startActivityForResult(o,0);
+            }
+        });
+        logofont.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view){
+                o=new Intent(AttendanceView.this,MainActivity.class);
+                startActivityForResult(o,0);
+                setResult(RESULT_OK);
+                finish();
+
+            }
+        });
+    }
+    @Override
+    public void onActivityResult(int request,int result,Intent data){
+        switch(request){
+            case 0:
+                if(result==RESULT_OK) finish();
+                break;
         }
     }
 }
