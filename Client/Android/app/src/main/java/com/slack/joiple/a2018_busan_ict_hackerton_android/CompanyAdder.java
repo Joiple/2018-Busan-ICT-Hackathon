@@ -83,6 +83,22 @@ public class CompanyAdder extends AppCompatActivity {
                 finish();
             }
         });
+        option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(CompanyAdder.this,Option.class);
+                startActivityForResult(o,0);
+            }
+        });
+        logofont.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(CompanyAdder.this,MainActivity.class);
+                startActivityForResult(o,0);
+                setResult(RESULT_OK);
+                finish();
+            }
+        });
 
         cancelBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,5 +106,13 @@ public class CompanyAdder extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+    @Override
+    public void onActivityResult(int request,int result,Intent data){
+        switch(request){
+            case 0:
+                if(result==RESULT_OK) finish();
+                break;
+        }
     }
 }
