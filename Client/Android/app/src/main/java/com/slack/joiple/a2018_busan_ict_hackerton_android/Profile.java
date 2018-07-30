@@ -24,12 +24,15 @@ public class Profile extends AppCompatActivity {// information : id password nam
     ImageButton logout, menu, option, logofont;
     DatePicker birthdayEdit;
     Intent o,g;
-    SharedPreferences pref;
+    SharedPreferences user,pref;
+    SharedPreferences.Editor editor;
+
     boolean isEditing=false;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_profile);
+        user=getSharedPreferences("user",MODE_PRIVATE);
         nameView=findViewById(R.id.nameView);
         companyView=findViewById(R.id.companyView);
         birthdayView=findViewById(R.id.birthView);
@@ -101,6 +104,26 @@ public class Profile extends AppCompatActivity {// information : id password nam
                 }
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                editor= user.edit();
+                editor.putBoolean("isUsing",false);
+                editor.commit();
+                o=new Intent(Profile.this,SignIn.class);
+                startActivity(o);
+                finish();
+            }
+        });
+        option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(Profile.this,Option.class);
+                startActivityForResult(o,0);
+            }
+        });
+
         compProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

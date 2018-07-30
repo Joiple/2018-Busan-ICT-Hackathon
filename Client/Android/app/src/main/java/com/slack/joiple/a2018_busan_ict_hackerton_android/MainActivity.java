@@ -15,8 +15,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     Intent o,g;
-    Button register,start,end,recordDetail;
-    ImageButton option,working,stopworking,status,logout,menu,logofont;
+    Button register,recordDetail;
+    ImageButton option,start,end,status,logout,menu,logofont;
     TextView company;
     LinearLayout attLayout;
     TextView[] times,events;
@@ -31,14 +31,13 @@ public class MainActivity extends AppCompatActivity {
         user=getSharedPreferences("user",MODE_PRIVATE);
         g=getIntent();
         register=findViewById(R.id.changeCompBtn);
-        start=findViewById(R.id.workBtn);
-        end=findViewById(R.id.offBtn);
+        start=findViewById(R.id.workingBtn);
+        end=findViewById(R.id.stopworkingBtn);
         option=findViewById(R.id.statusBtn);
         company=findViewById(R.id.companyView);
         recordDetail=findViewById(R.id.recordBtn);
         attLayout=findViewById(R.id.recordLayout);
-        working=findViewById(R.id.workingBtn);
-        stopworking=findViewById(R.id.stopworkingBtn);
+
         logout=findViewById(R.id.logoutBtn);
         menu=findViewById(R.id.slideBtn);
         logofont=findViewById(R.id.logofontBtn);
@@ -83,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
+
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
