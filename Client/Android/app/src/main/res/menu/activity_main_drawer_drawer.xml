@@ -9,7 +9,7 @@
         <menu>
         <item
             android:id="@+id/nav_spec"
-            android:title="dddddere" />
+            android:title="맘스터치 오륙도지점" />
 
         </menu>
     </item>
@@ -18,7 +18,7 @@
         <menu>
             <item
                 android:id="@+id/nav_act"
-                android:title="dfdqere"/>
+                android:title="7530원"/>
 
         </menu>
     </item>
@@ -27,14 +27,14 @@
         <menu>
             <item
                 android:id="@+id/nav_etc"
-                android:title="ddeqefdw"/>
+                android:title="542160원"/>
         </menu>
     </item>
     <item
         android:title="이전 알바기록">
         <menu>
             <item
-                android:title="dddddddd"/>
+                android:title="A13누리관 옥상"/>
         </menu>
     </item>
 </menu>

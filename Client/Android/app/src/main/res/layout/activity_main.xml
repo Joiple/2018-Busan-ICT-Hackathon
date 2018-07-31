@@ -71,6 +71,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,12 +88,14 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:visibility="gone">
 
                 <ImageButton
                     android:id="@+id/workingBtn"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:background="@color/colortrans"
                     android:elevation="2dp"
@@ -101,12 +104,14 @@
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toStartOf="@+id/stopworkingBtn"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/working2" />
 
                 <ImageButton
                     android:id="@+id/stopworkingBtn"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
+                    android:layout_marginTop="8dp"
                     android:layout_weight="1"
                     android:background="@color/colortrans"
                     android:elevation="15dp"
@@ -115,7 +120,34 @@
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/workingBtn"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/stopworking3" />
+            </android.support.constraint.ConstraintLayout>
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView5"
+                    android:layout_width="0dp"
+                    android:layout_height="124dp"
+                    android:scaleType="centerInside"
+                    app:layout_constraintBottom_toTopOf="@+id/calinder"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/profile" />
+
+                <ImageView
+                    android:id="@+id/calinder"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/august" />
 
 
             </android.support.constraint.ConstraintLayout>

@@ -29,7 +29,7 @@ public class QrReader extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_qr_reader);
         g=getIntent();
-        rescanBtn=findViewById(R.id.rescanBtn);
+        //rescanBtn=findViewById(R.id.rescanBtn);
         sendBtn=findViewById(R.id.sendBtn);
         nfcBtn =findViewById(R.id.nfcModeBtn);
         infoText=findViewById(R.id.infoView);
@@ -90,7 +90,7 @@ public class QrReader extends AppCompatActivity {
                 value=result.getContents();
                 //TODO send starting work data to server with type(g.getAction())
                 if(true) {//result
-                    Toast.makeText(QrReader.this,"success!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(QrReader.this,"퇴근완료", Toast.LENGTH_SHORT).show();
                 }
                 SharedPreferences rec=getSharedPreferences("record",MODE_PRIVATE);
                 int num=rec.getInt("number",0);

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class NfcTagging extends AppCompatActivity {
     private Intent cardService;
@@ -45,10 +46,12 @@ public class NfcTagging extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)) {
-            // ... your code
+            Toast.makeText(getApplicationContext(), "퇴근완료", Toast.LENGTH_SHORT).show();// ... your code
+            finish();
             return true;
         } else if ((keyCode == KeyEvent.KEYCODE_VOLUME_UP)) {
-            // ... your code
+            Toast.makeText(getApplicationContext(), "출근완료.", Toast.LENGTH_SHORT).show();// ... your code
+            finish();
             return true;
         } else
             return super.onKeyDown(keyCode, event);

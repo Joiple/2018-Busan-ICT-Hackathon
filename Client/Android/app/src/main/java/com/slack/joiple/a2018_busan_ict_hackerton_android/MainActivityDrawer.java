@@ -28,7 +28,7 @@ public class MainActivityDrawer extends AppCompatActivity
     Intent o,g;
     Button register;
     ImageButton option,start,end,status,logout,menu,logofont;
-    LinearLayout attLayout;
+
     TextView[] times, events;
     SharedPreferences user, pref, settings;
     SharedPreferences.Editor editor;
@@ -81,7 +81,7 @@ public class MainActivityDrawer extends AppCompatActivity
             events[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
             tmpLayout.addView(times[i]);
             tmpLayout.addView(events[i]);
-            attLayout.addView(tmpLayout);
+
         }
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,13 +205,11 @@ public class MainActivityDrawer extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-         if (id == R.id.nav_spec) {
+        if (id == R.id.nav_spec) {
 
 
         } else if (id == R.id.nav_act) {
