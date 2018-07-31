@@ -89,7 +89,7 @@
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <ImageButton
                     android:id="@+id/workingBtn"
@@ -133,6 +133,7 @@
                     android:layout_width="0dp"
                     android:layout_height="124dp"
                     android:scaleType="centerInside"
+                    android:visibility="visible"
                     app:layout_constraintBottom_toTopOf="@+id/calinder"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -141,13 +142,25 @@
 
                 <ImageView
                     android:id="@+id/calinder"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_width="387dp"
+                    android:layout_height="333dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView6"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:srcCompat="@drawable/august" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="391dp"
+                    android:layout_height="87dp"
+                    android:layout_marginBottom="8dp"
+                    android:scaleType="fitCenter"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="h,1:1"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:srcCompat="@drawable/money" />
 
 
             </android.support.constraint.ConstraintLayout>

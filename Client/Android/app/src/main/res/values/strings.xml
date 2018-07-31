@@ -59,4 +59,5 @@
     <string name="Tools" translatable="false">기타근무기록</string>
     <string name="Share" translatable="false">임금내역</string>
     <string name="Send" translatable="false">회사정보수정</string>
+    <string name="hp" translatble="false">조이플님</string>
 </resources>
