@@ -67,17 +67,19 @@
     </android.support.constraint.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/ScrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:elevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/uplayout"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
-            android:id="@+id/mainLayout"
+            android:id="@+id/TimeLine"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -92,6 +94,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@color/colortrans"
+                    android:elevation="10dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="1:1"
@@ -105,98 +108,13 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@color/colortrans"
+                    android:elevation="0dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/workingBtn"
                     app:srcCompat="@drawable/stopworking3" />
-            </android.support.constraint.ConstraintLayout>
-
-            <Button
-                android:id="@+id/changeCompBtn"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/registerCompany"
-                android:visibility="gone"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <LinearLayout
-                android:id="@+id/attendance"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <Button
-                    android:id="@+id/workBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/startWork" />
-
-                <Button
-                    android:id="@+id/offBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/endWork" />
-            </LinearLayout>
-
-            <TextView
-                android:id="@+id/companyView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView"
-                tools:layout_editor_absoluteX="171dp"
-                tools:layout_editor_absoluteY="237dp" />
-
-            <android.support.constraint.ConstraintLayout
-                android:id="@+id/attendanceLayout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1">
-
-                <android.support.constraint.ConstraintLayout
-                    android:id="@+id/constraintLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <Button
-                        android:id="@+id/recordBtn"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/details"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/recordTooltip"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/records"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </android.support.constraint.ConstraintLayout>
-
-                <LinearLayout
-                    android:id="@+id/recordLayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
-
-                </LinearLayout>
 
             </android.support.constraint.ConstraintLayout>
 

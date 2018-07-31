@@ -1,5 +1,6 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -24,13 +26,13 @@ import android.widget.Toast;
 public class MainActivityDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Intent o,g;
-    Button register,recordDetail;
+    Button register;
     ImageButton option,start,end,status,logout,menu,logofont;
-    TextView company;
     LinearLayout attLayout;
     TextView[] times,events;
     SharedPreferences user,pref,settings;
     SharedPreferences.Editor editor;
+    LinearLayout holder;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
     @Override
@@ -55,9 +57,6 @@ public class MainActivityDrawer extends AppCompatActivity
         start=findViewById(R.id.workingBtn);
         end=findViewById(R.id.stopworkingBtn);
         option=findViewById(R.id.statusBtn);
-        company=findViewById(R.id.companyView);
-        recordDetail=findViewById(R.id.recordBtn);
-        attLayout=findViewById(R.id.recordLayout);
 
         logout=findViewById(R.id.logoutBtn);
         menu=findViewById(R.id.slideBtn);
@@ -129,13 +128,6 @@ public class MainActivityDrawer extends AppCompatActivity
                 startActivity(o);
             }
         });
-        recordDetail.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                o=new Intent(MainActivityDrawer.this,AttendanceView.class);
-                startActivity(o);
-            }
-        });
         option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -143,7 +135,27 @@ public class MainActivityDrawer extends AppCompatActivity
                 startActivityForResult(o,0);
             }
         });
-        //
+        SharedPreferences spec=getSharedPreferences("spec",MODE_PRIVATE);
+        SharedPreferences.Editor editor=spec.edit();
+        if(spec.getInt("number",-1)==-1) {
+            editor.putInt("number", 2);
+            editor.putInt("type0", 0);
+            editor.putString("name0", "토익");
+            editor.putString("date0", "2018.01.01~2020.01.01");
+            editor.putString("data0", "990점");
+            editor.putInt("type1", 1);
+            editor.putString("name1", "부산 ICT 해카톤");
+            editor.putString("date1", "2018.07.29~2018.08.01");
+            editor.putString("data1", "대상");
+            editor.putInt("type2", 2);
+            editor.putString("name2", "기상청");
+            editor.putString("date2", "2018.01.02");
+            editor.putString("data2", "주소:duties/weather");
+            editor.commit();
+        }
+        for(int i=0;i<spec.getInt("number",0);i++){
+
+        }
     }
 
     @Override
@@ -185,7 +197,6 @@ public class MainActivityDrawer extends AppCompatActivity
         getMenuInflater().inflate(R.menu.main_activity_drawer, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -207,17 +218,17 @@ public class MainActivityDrawer extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_attend) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_profile) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_pay) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_spec) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_act) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_etc) {
 
         }
 
@@ -229,13 +240,35 @@ public class MainActivityDrawer extends AppCompatActivity
         pref=getSharedPreferences("user",MODE_PRIVATE);
         settings=getSharedPreferences("settings",MODE_PRIVATE);
         String companyName=pref.getString("company","null");
-        company.setText(companyName);
-        if(companyName.equals("null")){
-            register.setVisibility(View.VISIBLE);
-            findViewById(R.id.attendance).setVisibility(View.GONE);
-        }else{
-            register.setVisibility(View.GONE);
-            findViewById(R.id.attendance).setVisibility(View.VISIBLE);
+    }
+    class CustCard extends LinearLayout{
+        public CustCard(Context c){
+            super(c);
+            this.setOrientation(HORIZONTAL);
+            LinearLayout tmpLin=new LinearLayout(c);
+            tmpLin.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,1));
+            tmpLin.setOrientation(VERTICAL);
+            typeV=new TextView(c,null,R.style.custCardType);
+            this.addView(typeV);
+            this.addView(tmpLin);
+            subject=new TextView(c,null,R.style.custCardItem);
+            tmpLin.addView(subject);
+            date=new TextView(c,null,R.style.custCardItem);
+            tmpLin.addView(date);
+            data=new TextView(c,null,R.style.custCardItem);
+            tmpLin.addView(data);
+        }
+        int type=0;
+        TextView typeV,subject,date,data;
+        public void setdata(int type,String subject,String date,String data){
+            switch(type){
+                default:
+                    typeV.setText("기타");
+                    break;
+            }
+            this.subject.setText(subject);
+            this.date.setText(date);
+            this.data.setText(data);
         }
     }
 }
