@@ -52,7 +52,7 @@
             android:label="@string/title_activity_main_drawer"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".CarrierActivityDrawer"
+            android:name=".CareerActivityDrawer"
             android:label="@string/title_activity_carrier_drawer"
             android:theme="@style/AppTheme" />
         <activity
