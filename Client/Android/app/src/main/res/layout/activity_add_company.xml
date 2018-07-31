@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/uplayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -71,9 +71,9 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="40dp"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_marginTop="124dp"
+        app:layout_constraintTop_toBottomOf="@+id/uplayout"
+        tools:layout_editor_absoluteX="27dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -88,11 +88,17 @@
 
                 <TextView
                     android:id="@+id/nameView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="46dp"
+                    android:layout_height="22dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/name"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="0dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/nameEdit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/nameEdit"
@@ -116,9 +122,15 @@
                     android:id="@+id/locationView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/location"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="0dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/locationEdit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/locationEdit"
@@ -141,9 +153,12 @@
                     android:id="@+id/addressView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:text="@string/address"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="0dp" />
+                    app:layout_constraintEnd_toStartOf="@+id/addressEdit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:layout_editor_absoluteY="14dp" />
 
                 <EditText
                     android:id="@+id/addressEdit"
@@ -166,9 +181,15 @@
                     android:id="@+id/crnView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/crn"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="0dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/crnEdit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/crnEdit"
@@ -191,9 +212,15 @@
                     android:id="@+id/introductionView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:text="@string/introduction"
-                    tools:layout_editor_absoluteX="85dp"
-                    tools:layout_editor_absoluteY="0dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/introductionEdit"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/introductionEdit"

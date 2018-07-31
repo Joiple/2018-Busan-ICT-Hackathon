@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout2"
+        android:id="@+id/uplayout"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/colorBackground"
@@ -68,12 +68,12 @@
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="70dp"
         android:scrollbarStyle="insideOverlay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+        app:layout_constraintTop_toBottomOf="@+id/uplayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="67dp"
                 android:layout_weight="1">
 
                 <TextView
@@ -116,7 +116,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="67dp"
                 android:layout_weight="1">
 
                 <TextView
@@ -150,7 +150,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="70dp"
                 android:layout_weight="1">
 
                 <TextView
@@ -184,7 +184,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="71dp"
                 android:layout_weight="1">
 
                 <TextView
@@ -218,7 +218,7 @@
 
             <android.support.constraint.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="83dp"
                 android:layout_weight="1">
 
                 <TextView
@@ -256,10 +256,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/colortrans"
+                android:text="@android:string/ok"
                 android:textColor="@color/Btn"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:text="@android:string/ok"
                 android:visibility="gone" />
 
             <Button
@@ -268,10 +268,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/colortrans"
+                android:text="@android:string/cancel"
                 android:textColor="@color/rose"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:text="@android:string/cancel"
                 android:visibility="gone" />
 
             <Button
@@ -280,10 +280,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/colortrans"
-                android:textStyle="bold"
-                android:textSize="20dp"
+                android:text="@string/edit"
                 android:textColor="@color/Btn"
-                android:text="@string/edit" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/backBtn"
@@ -291,10 +291,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/colortrans"
-                android:textStyle="bold"
-                android:textSize="20dp"
+                android:text="@string/back"
                 android:textColor="@color/clearBtn"
-                android:text="@string/back" />
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
     </ScrollView>

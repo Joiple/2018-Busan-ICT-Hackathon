@@ -15,9 +15,10 @@
         <activity android:name=".Initial">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+		<activity android:name=".Initial">
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+		</activity>
+		<activity android:name="Career">
         </activity>
         <activity android:name=".QrReader" />
         <activity android:name=".NfcTagging" />
