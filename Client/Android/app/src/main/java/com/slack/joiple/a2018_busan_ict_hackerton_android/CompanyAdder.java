@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CompanyAdder extends AppCompatActivity {
-    NetworkManager manager;
     Intent o;
     EditText name,address,number,description,location;
     Button addBtn,cancelBtn;
@@ -46,12 +45,6 @@ public class CompanyAdder extends AppCompatActivity {
                         compCrn=number.getText().toString(),
                         compIntroduction=description.getText().toString(),
                         compLocation=location.getText().toString();
-                manager=new NetworkManager(getString(R.string.serverURL),"makecom");
-                manager.in.addItem("name",compName);
-                manager.in.addItem("location",compLocation);
-                manager.in.addItem("address",compAddress);
-                manager.in.addItem("crn",compCrn);
-                manager.in.addItem("introduction",compIntroduction);
                 if(true){//TODO checking company adding->manager.execute()
                         SharedPreferences pref = getSharedPreferences("comp", MODE_PRIVATE);
                         SharedPreferences.Editor editor = pref.edit();
@@ -93,7 +86,7 @@ public class CompanyAdder extends AppCompatActivity {
         logofont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                o=new Intent(CompanyAdder.this,MainActivity.class);
+                o=new Intent(CompanyAdder.this,MainActivityDrawer.class);
                 startActivityForResult(o,0);
                 setResult(RESULT_OK);
                 finish();

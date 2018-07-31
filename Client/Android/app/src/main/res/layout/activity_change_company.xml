@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <android.support.constraint.ConstraintLayout
@@ -130,11 +131,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/registerCompany"
             android:background="@color/colortrans"
+            android:elevation="@dimen/activity_horizontal_margin"
+            android:text="@string/registerCompany"
             android:textColor="@color/Btn"
             android:textSize="20dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/cancelBtn"
@@ -142,11 +144,30 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@color/colortrans"
+            android:elevation="@dimen/activity_vertical_margin"
+            android:text="@android:string/cancel"
             android:textColor="@color/rose"
             android:textSize="20dp"
-            android:textStyle="bold"
-            android:text="@android:string/cancel" />
+            android:textStyle="bold" />
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="31dp"
+        tools:layout_editor_absoluteY="408dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="20dp"
+        android:text="Button"
+        tools:layout_editor_absoluteX="119dp"
+        tools:layout_editor_absoluteY="408dp" />
 
 </android.support.constraint.ConstraintLayout>

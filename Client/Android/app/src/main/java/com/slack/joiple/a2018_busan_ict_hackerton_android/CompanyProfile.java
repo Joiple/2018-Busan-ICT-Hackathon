@@ -18,8 +18,6 @@ public class CompanyProfile extends AppCompatActivity {
     EditText nameEdit,locationEdit,addressEdit,crnEdit,introductionEdit;
     Button editBtn,confirmBtn,cancelBtn,backBtn;
     ImageButton option,start,end,status,logout,menu,logofont;
-
-    NetworkManager nm;
     boolean changed=false;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
@@ -49,13 +47,6 @@ public class CompanyProfile extends AppCompatActivity {
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nm=new NetworkManager(getString(R.string.serverURL),"post");//TODO change proper action
-                nm.in.addItem("name",nameEdit.getText().toString());
-                nm.in.addItem("address",addressEdit.getText().toString());
-                nm.in.addItem("location",locationEdit.getText().toString());
-                nm.in.addItem("crn",crnEdit.getText().toString());
-                nm.in.addItem("introduction",introductionEdit.getText().toString());
-                //nm.execute();
                 changed=true;
                 setTextsOnNetwork();
                 layoutViewMode();
@@ -98,7 +89,7 @@ public class CompanyProfile extends AppCompatActivity {
         logofont.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
-                o=new Intent(CompanyProfile.this,MainActivity.class);
+                o=new Intent(CompanyProfile.this,MainActivityDrawer.class);
                 startActivityForResult(o,0);
                 setResult(RESULT_OK);
                 finish();
@@ -122,22 +113,16 @@ public class CompanyProfile extends AppCompatActivity {
         super.onBackPressed();
     }
     public void setTextsOnNetwork(){
-        nm=new NetworkManager(getString(R.string.serverURL),"post");//TODO change action properly
-        nm.in.addItem("code","");
         //nm.execute();
         //
         SharedPreferences preff=getSharedPreferences("comp",MODE_PRIVATE);
-        nm.out.addItem("name",preff.getString("name","null"));
-        nm.out.addItem("location",preff.getString("location","null"));
-        nm.out.addItem("address",preff.getString("address","null"));
-        nm.out.addItem("crn",preff.getString("crn","null"));
-        nm.out.addItem("introduction",preff.getString("introduction","null"));
         //
-        String name=nm.out.getItem("name");
-        String location=nm.out.getItem("location");
-        String address=nm.out.getItem("address");
-        String crn=nm.out.getItem("crn");
-        String introduction=nm.out.getItem("introduction");
+        String name=preff.getString("name","null");
+        String location=preff.getString("location","null");
+        String address=preff.getString("address","null");
+        String crn=preff.getString("crn","null");
+        String introduction=preff.getString("introduction","null");
+
         nameView.setText(name);
         nameEdit.setText(name);
         locationView.setText(location);

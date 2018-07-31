@@ -92,6 +92,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@color/colortrans"
+                    android:elevation="2dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="1:1"
@@ -105,6 +106,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:background="@color/colortrans"
+                    android:elevation="15dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="1:1"
@@ -164,7 +166,7 @@
                 <android.support.constraint.ConstraintLayout
                     android:id="@+id/constraintLayout"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="48dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
