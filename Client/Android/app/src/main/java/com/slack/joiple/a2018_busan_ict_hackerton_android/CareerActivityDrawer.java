@@ -1,5 +1,6 @@
 package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,11 +15,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class CareerActivityDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener
+{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_carrier_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -68,22 +71,34 @@ public class CareerActivityDrawer extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        Intent o;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_attend) {
-            // Handle the camera action
+            o = new Intent(CareerActivityDrawer.this, AttendanceView.class);
+            startActivity(o);  // Handle the camera action
         } else if (id == R.id.nav_profile) {
+            o = new Intent(CareerActivityDrawer.this, ProfileActivityDrawer.class);
+            startActivity(o);
 
         } else if (id == R.id.nav_pay) {
+            o = new Intent(CareerActivityDrawer.this, Pay.class);
+            startActivity(o);
 
         } else if (id == R.id.nav_spec) {
+            o = new Intent(CareerActivityDrawer.this, lisence.class);
+            startActivity(o);
 
         } else if (id == R.id.nav_act) {
+            o = new Intent(CareerActivityDrawer.this, Active.class);
+            startActivity(o);
 
         } else if (id == R.id.nav_etc) {
-
+            o = new Intent(CareerActivityDrawer.this, ect.class);
+            startActivity(o);
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

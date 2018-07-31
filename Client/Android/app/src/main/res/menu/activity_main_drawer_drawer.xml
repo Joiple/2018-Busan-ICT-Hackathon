@@ -15,7 +15,8 @@
             android:title="임금 내역" />
     </group>
 
-    <item android:title="스펙 관리">
+    <item
+        android:title="스펙 관리">
         <menu>
         <item
             android:id="@+id/nav_spec"

@@ -83,13 +83,6 @@ public class MainActivityDrawer extends AppCompatActivity
             tmpLayout.addView(events[i]);
             attLayout.addView(tmpLayout);
         }
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                o = new Intent(MainActivityDrawer.this, CompanyChanger.class);
-                startActivityForResult(o, 0);
-            }
-        });
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -219,17 +212,27 @@ public class MainActivityDrawer extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_attend) {
-            // Handle the camera action
+            o = new Intent(MainActivityDrawer.this, AttendanceView.class);
+            startActivity(o);  // Handle the camera action
         } else if (id == R.id.nav_profile) {
+            o = new Intent(MainActivityDrawer.this, ProfileActivityDrawer.class);
+            startActivity(o);
 
         } else if (id == R.id.nav_pay) {
+            o = new Intent(MainActivityDrawer.this, Pay.class);
+            startActivity(o);
 
         } else if (id == R.id.nav_spec) {
+            o = new Intent(MainActivityDrawer.this, lisence.class);
+            startActivity(o);
 
         } else if (id == R.id.nav_act) {
+            o = new Intent(MainActivityDrawer.this, Active.class);
+            startActivity(o);
 
         } else if (id == R.id.nav_etc) {
-
+            o = new Intent(MainActivityDrawer.this, ect.class);
+            startActivity(o);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
