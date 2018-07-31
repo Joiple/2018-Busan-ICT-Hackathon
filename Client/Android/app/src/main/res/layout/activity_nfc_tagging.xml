@@ -19,23 +19,32 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
+            android:background="@color/white"
             android:contentDescription="@string/nfcIconDescription"
-            app:srcCompat="@drawable/nfc" />
+            app:srcCompat="@drawable/nfc2" />
 
         <Button
             android:id="@+id/cancelBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
+            android:background="@color/white"
             android:gravity="center_horizontal"
-            android:text="@android:string/cancel" />
+            android:text="@android:string/cancel"
+            android:textColor="@color/rose"
+            android:textSize="20dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/qrModeBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="@string/qrMode" />
+            android:background="@color/white"
+            android:text="@string/qrMode"
+            android:textColor="@color/nfcmode"
+            android:textSize="20dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

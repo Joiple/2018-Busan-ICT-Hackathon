@@ -7,15 +7,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class CompanyProfile extends AppCompatActivity {
     Intent o;
-    SharedPreferences pref;
+    SharedPreferences user,pref;
+    SharedPreferences.Editor editor;
     TextView nameView,locationView,addressView,crnView,introductionView;
     EditText nameEdit,locationEdit,addressEdit,crnEdit,introductionEdit;
     Button editBtn,confirmBtn,cancelBtn,backBtn;
-    NetworkManager nm;
+    ImageButton option,start,end,status,logout,menu,logofont;
     boolean changed=false;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
@@ -45,13 +47,6 @@ public class CompanyProfile extends AppCompatActivity {
         confirmBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                nm=new NetworkManager(getString(R.string.serverURL),"post");//TODO change proper action
-                nm.in.addItem("name",nameEdit.getText().toString());
-                nm.in.addItem("address",addressEdit.getText().toString());
-                nm.in.addItem("location",locationEdit.getText().toString());
-                nm.in.addItem("crn",crnEdit.getText().toString());
-                nm.in.addItem("introduction",introductionEdit.getText().toString());
-                //nm.execute();
                 changed=true;
                 setTextsOnNetwork();
                 layoutViewMode();
@@ -72,8 +67,44 @@ public class CompanyProfile extends AppCompatActivity {
         });
         setTextsOnNetwork();
 
-    }
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                editor= user.edit();
+                editor.putBoolean("isUsing",false);
+                editor.commit();
+                o=new Intent(CompanyProfile.this,SignIn.class);
+                startActivity(o);
+                finish();
+            }
+        });
+        option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(CompanyProfile.this,Option.class);
+                startActivityForResult(o,0);
+            }
+        });
+        logofont.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view){
+                o=new Intent(CompanyProfile.this,MainActivityDrawer.class);
+                startActivityForResult(o,0);
+                setResult(RESULT_OK);
+                finish();
+
+            }
+        });
+    }
+    @Override
+    public void onActivityResult(int request,int result,Intent data){
+        switch(request){
+            case 0:
+                if(result==RESULT_OK) finish();
+                break;
+        }
+    }
     @Override
     public void onBackPressed(){
         if(changed){
@@ -82,22 +113,16 @@ public class CompanyProfile extends AppCompatActivity {
         super.onBackPressed();
     }
     public void setTextsOnNetwork(){
-        nm=new NetworkManager(getString(R.string.serverURL),"post");//TODO change action properly
-        nm.in.addItem("code","");
         //nm.execute();
         //
         SharedPreferences preff=getSharedPreferences("comp",MODE_PRIVATE);
-        nm.out.addItem("name",preff.getString("name","null"));
-        nm.out.addItem("location",preff.getString("location","null"));
-        nm.out.addItem("address",preff.getString("address","null"));
-        nm.out.addItem("crn",preff.getString("crn","null"));
-        nm.out.addItem("introduction",preff.getString("introduction","null"));
         //
-        String name=nm.out.getItem("name");
-        String location=nm.out.getItem("location");
-        String address=nm.out.getItem("address");
-        String crn=nm.out.getItem("crn");
-        String introduction=nm.out.getItem("introduction");
+        String name=preff.getString("name","null");
+        String location=preff.getString("location","null");
+        String address=preff.getString("address","null");
+        String crn=preff.getString("crn","null");
+        String introduction=preff.getString("introduction","null");
+
         nameView.setText(name);
         nameEdit.setText(name);
         locationView.setText(location);

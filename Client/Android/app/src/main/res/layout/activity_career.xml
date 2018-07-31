@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/uplayout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/colorBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/slideBtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#000000FF"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/menu" />
+
+        <ImageButton
+            android:id="@+id/logoutBtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/colortrans"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logout" />
+
+        <ImageButton
+            android:id="@+id/logofontBtn"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:background="@color/colortrans"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toStartOf="@+id/statusBtn"
+            app:layout_constraintHorizontal_bias="0.866"
+            app:layout_constraintStart_toEndOf="@+id/slideBtn"
+            app:srcCompat="@drawable/logofont"
+            tools:layout_editor_absoluteY="0dp"
+            tools:ignore="MissingConstraints" />
+
+        <ImageButton
+            android:id="@+id/statusBtn"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="44dp"
+            android:background="@color/colortrans"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@+id/logoutBtn"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/status" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/careerbox"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/careerfont"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/liecenseBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colortrans"
+        android:text="Button"
+        android:textColor="#FFFFFFFF"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="65dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/activityBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colortrans"
+        android:text="Button"
+        android:textColor="#FFFFFFFF"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="231dp"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/ectBtn"
+        android:layout_width="197dp"
+        android:layout_height="57dp"
+        android:background="@color/colortrans"
+        android:text="Button"
+        android:textColor="@color/colortrans"
+        tools:layout_editor_absoluteX="37dp"
+        tools:layout_editor_absoluteY="388dp"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="337dp"
+        android:layout_height="81dp"
+        android:text="컴퓨터활용능력"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="117dp"
+        tools:ignore="MissingConstraints" />
+
+</android.support.constraint.ConstraintLayout>

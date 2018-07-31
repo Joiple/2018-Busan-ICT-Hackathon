@@ -4,4 +4,16 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="errorColor">#FF0000</color>
+    <color name="colorBackground">#8edebd</color>
+    <color name="colortrans">#000000ff</color>
+    <color name="Btn">#6ebfcc</color>
+    <color name="clearBtn">#258899</color>
+    <color name="white">#FFFFFF</color>
+    <color name="mintBtn">#A9E4DF</color>
+    <color name="org">#FDD712</color>
+    <color name="org1">#FDC912</color>
+    <color name="nfcmode">#4DA4ED</color>
+    <color name="pink">#FD5D7D</color>
+    <color name="rose">#EF5271</color>
+
 </resources>

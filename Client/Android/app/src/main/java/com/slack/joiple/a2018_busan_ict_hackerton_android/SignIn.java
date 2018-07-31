@@ -41,14 +41,7 @@ public class SignIn extends AppCompatActivity {
             public void onClick(View view) {
                 String id=idEdit.getText().toString();
                 String password=passEdit.getText().toString();
-                NetworkManager nw=new NetworkManager(getString(R.string.serverURL),"login");
-                nw.in.addItem("id",id);
-                nw.in.addItem("password",password);
-                nw.out.addItem("check","true");
-                //nw.execute();
-
-
-                if(nw.out.getItem("check").equals("true")){//TODO get check value
+                if(true){//TODO get check value
                 //TODO get login result
                 if(true){//login result
                     SharedPreferences pref=getSharedPreferences("user",MODE_PRIVATE);
@@ -58,7 +51,7 @@ public class SignIn extends AppCompatActivity {
                     editor.putString("id",idEdit.getText().toString());
                     editor.putString("pass",passEdit.getText().toString());
                     editor.commit();
-                    o=new Intent(SignIn.this,MainActivity.class);
+                    o=new Intent(SignIn.this,MainActivityDrawer.class);
                     startActivity(o);
                     setResult(RESULT_OK);
                     finish();

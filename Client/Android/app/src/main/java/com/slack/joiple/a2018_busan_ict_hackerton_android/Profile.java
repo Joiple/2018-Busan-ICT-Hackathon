@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,14 +21,18 @@ public class Profile extends AppCompatActivity {// information : id password nam
     Button changeComp,editButton,okBtn,cancelBtn,compProfileBtn;
     TextView nameView,companyView,birthdayView,phoneView,emailView,wageView;
     EditText nameEdit,phoneEdit,emailEdit,wageEdit;
+    ImageButton logout, menu, option, logofont;
     DatePicker birthdayEdit;
     Intent o,g;
-    SharedPreferences pref;
+    SharedPreferences user,pref;
+    SharedPreferences.Editor editor;
+
     boolean isEditing=false;
     @Override
     public void onCreate(Bundle saveInstanceBundle){
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_profile);
+        user=getSharedPreferences("user",MODE_PRIVATE);
         nameView=findViewById(R.id.nameView);
         companyView=findViewById(R.id.companyView);
         birthdayView=findViewById(R.id.birthView);
@@ -35,12 +40,17 @@ public class Profile extends AppCompatActivity {// information : id password nam
         emailView=findViewById(R.id.emailView);
         wageView=findViewById(R.id.wageView);
         nameEdit=findViewById(R.id.nameEdit);
+        logout=findViewById(R.id.logoutBtn);
+        menu=findViewById(R.id.slideBtn);
+        option=findViewById(R.id.statusBtn);
+        logofont=findViewById(R.id.logofontBtn);
         birthdayEdit=findViewById(R.id.birthEdit);
         phoneEdit=findViewById(R.id.phoneEdit);
         emailEdit=findViewById(R.id.emailEdit);
         wageEdit=findViewById(R.id.wageEdit);
         editButton=findViewById(R.id.editBtn);
         okBtn=findViewById(R.id.modBtn);
+
         cancelBtn=findViewById(R.id.cancelModBtn);
         changeComp=findViewById(R.id.changeCompBtn);
         compProfileBtn=findViewById(R.id.compProfileBtn);
@@ -53,9 +63,6 @@ public class Profile extends AppCompatActivity {// information : id password nam
         });
         pref=getSharedPreferences("user",MODE_PRIVATE);
         loadText();
-        NetworkManager nw=new NetworkManager(getString(R.string.serverURL),"getProfile");
-        nw.in.addItem("id",pref.getString("id","null"));
-        nw.in.addItem("password",pref.getString("password","null"));
         editButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -94,6 +101,36 @@ public class Profile extends AppCompatActivity {// information : id password nam
                 }
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                editor= user.edit();
+                editor.putBoolean("isUsing",false);
+                editor.commit();
+                o=new Intent(Profile.this,SignIn.class);
+                startActivity(o);
+                finish();
+            }
+        });
+        option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                o=new Intent(Profile.this,Option.class);
+                startActivityForResult(o,0);
+            }
+        });
+        logofont.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick (View view){
+                o=new Intent(Profile.this,MainActivityDrawer.class);
+                startActivityForResult(o,0);
+                setResult(RESULT_OK);
+                finish();
+
+            }
+        });
+
         compProfileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,5 +188,12 @@ public class Profile extends AppCompatActivity {// information : id password nam
     protected void onActivityResult(int request,int result,Intent data){
         if(result==RESULT_CANCELED)return;
         loadText();
+        switch(request){
+            case 0:
+                if(result==RESULT_OK) finish();
+                break;
+            }
+        }
     }
-}
+
+
