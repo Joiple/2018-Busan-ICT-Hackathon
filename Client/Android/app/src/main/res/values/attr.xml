@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustCardView">
+        <attr name="title" format="reference|string"/>
+        <attr name="mainContent" format="reference|string"/>
+        <attr name="subContent" format="reference|string"/>
+        <attr name="date" format="reference|string"/>
+        <attr name="size" format="reference|boolean"/>
+        <attr name="color" format="reference|integer"/>
+        <attr name="bgColor" format="reference|integer"/>
+
+    </declare-styleable>
+</resources>

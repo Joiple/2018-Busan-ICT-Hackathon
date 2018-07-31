@@ -26,7 +26,6 @@ import android.widget.Toast;
 public class MainActivityDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     Intent o,g;
-    Button register;
     ImageButton option,start,end,status,logout,menu,logofont;
     LinearLayout attLayout;
     TextView[] times, events;
@@ -54,7 +53,6 @@ public class MainActivityDrawer extends AppCompatActivity
         //from mainactivity
         user=getSharedPreferences("user",MODE_PRIVATE);
         g=getIntent();
-        register=findViewById(R.id.changeCompBtn);
         start=findViewById(R.id.workingBtn);
         end=findViewById(R.id.stopworkingBtn);
         option=findViewById(R.id.statusBtn);
@@ -83,13 +81,7 @@ public class MainActivityDrawer extends AppCompatActivity
             tmpLayout.addView(events[i]);
             attLayout.addView(tmpLayout);
         }
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                o = new Intent(MainActivityDrawer.this, CompanyChanger.class);
-                startActivityForResult(o, 0);
-            }
-        });
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -138,8 +130,8 @@ public class MainActivityDrawer extends AppCompatActivity
         });
         SharedPreferences spec=getSharedPreferences("spec",MODE_PRIVATE);
         SharedPreferences.Editor editor=spec.edit();
-        if(spec.getInt("number",-1)==-1) {
-            editor.putInt("number", 2);
+        if(spec.getInt("number",-1)==-1||true) {
+            editor.putInt("number", 3);
             editor.putInt("type0", 0);
             editor.putString("name0", "토익");
             editor.putString("date0", "2018.01.01~2020.01.01");
@@ -154,8 +146,11 @@ public class MainActivityDrawer extends AppCompatActivity
             editor.putString("data2", "주소:duties/weather");
             editor.commit();
         }
+        LinearLayout mainWork=findViewById(R.id.mainwork);
         for(int i=0;i<spec.getInt("number",0);i++){
-
+            CustCard tmp=new CustCard(this);
+            tmp.setData(spec.getInt("type"+i,-1),spec.getString("name"+i,"null"),spec.getString("date"+i,"null"),spec.getString("data"+i,"null"));
+            mainWork.addView(tmp);
         }
     }
 
@@ -243,25 +238,40 @@ public class MainActivityDrawer extends AppCompatActivity
     }
     class CustCard extends LinearLayout{
         public CustCard(Context c){
-            super(c);
-            this.setOrientation(HORIZONTAL);
-            LinearLayout tmpLin=new LinearLayout(c);
-            tmpLin.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,1));
+            super(c,null,R.style.custCard,R.style.custCard);
+            typeV=new TextView(c);
+            typeV.setTextAppearance(R.style.custCardType);
+            subject=new TextView(c);
+            subject.setTextAppearance(R.style.custCardItem);
+            date=new TextView(c);
+            date.setTextAppearance(R.style.custCardItem);
+            data=new TextView(c);
+
+            typeV.setLayoutParams(new LayoutParams(150, ViewGroup.LayoutParams.MATCH_PARENT,0));
+            CustCard.this.setOrientation(HORIZONTAL);
+            LinearLayout tmpLin=new LinearLayout(CustCard.this.getContext());
             tmpLin.setOrientation(VERTICAL);
-            typeV=new TextView(c,null,R.style.custCardType);
-            this.addView(typeV);
-            this.addView(tmpLin);
-            subject=new TextView(c,null,R.style.custCardItem);
+            CustCard.this.addView(typeV);
+            CustCard.this.addView(tmpLin);
             tmpLin.addView(subject);
-            date=new TextView(c,null,R.style.custCardItem);
             tmpLin.addView(date);
-            data=new TextView(c,null,R.style.custCardItem);
             tmpLin.addView(data);
+            tmpLin.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT,2));
+            CustCard.this.setLayoutParams(new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT,1));
         }
         int type=0;
         TextView typeV,subject,date,data;
-        public void setdata(int type,String subject,String date,String data){
+        public void setData(int type,String subject,String date,String data){
             switch(type){
+                case 0:
+                    typeV.setText("기타");
+                    break;
+                case 1:
+                    typeV.setText("활동");
+                    break;
+                case 2:
+                    typeV.setText("이직");
+                    break;
                 default:
                     typeV.setText("기타");
                     break;
