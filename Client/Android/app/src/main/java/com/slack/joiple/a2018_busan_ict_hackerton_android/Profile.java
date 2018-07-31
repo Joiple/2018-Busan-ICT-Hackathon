@@ -63,9 +63,6 @@ public class Profile extends AppCompatActivity {// information : id password nam
         });
         pref=getSharedPreferences("user",MODE_PRIVATE);
         loadText();
-        NetworkManager nw=new NetworkManager(getString(R.string.serverURL),"getProfile");
-        nw.in.addItem("id",pref.getString("id","null"));
-        nw.in.addItem("password",pref.getString("password","null"));
         editButton.setOnClickListener(new View.OnClickListener() {
 
             @Override

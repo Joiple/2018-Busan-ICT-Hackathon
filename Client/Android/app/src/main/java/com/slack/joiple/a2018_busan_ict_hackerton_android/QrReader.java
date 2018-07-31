@@ -2,6 +2,7 @@ package com.slack.joiple.a2018_busan_ict_hackerton_android;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +12,9 @@ import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class QrReader extends AppCompatActivity {
     //view Objects
@@ -37,7 +41,6 @@ public class QrReader extends AppCompatActivity {
         sendBtn.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                NetworkManager nw=new NetworkManager(getString(R.string.serverURL),"qrinout");
 
                 //TODO send to server
             }
@@ -89,6 +92,14 @@ public class QrReader extends AppCompatActivity {
                 if(true) {//result
                     Toast.makeText(QrReader.this,"success!", Toast.LENGTH_SHORT).show();
                 }
+                SharedPreferences rec=getSharedPreferences("record",MODE_PRIVATE);
+                int num=rec.getInt("number",0);
+                SharedPreferences.Editor editor=rec.edit();
+                num+=1;
+                editor.putInt("number",num);
+                editor.putString("event"+num, getIntent().getAction());
+                editor.putString("time"+num,new SimpleDateFormat("yyyy-mm-dd hh:mm:ss").format(new Date(System.currentTimeMillis())));
+                editor.commit();
                 setResult(RESULT_OK);
                 finish();
                 /*

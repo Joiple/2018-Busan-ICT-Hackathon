@@ -65,19 +65,18 @@ public class MainActivityDrawer extends AppCompatActivity
         loadItems();
         times=new TextView[5];
         events=new TextView[5];
-        NetworkManager nm=new NetworkManager(getString(R.string.serverURL),"post");//TODO change action properly for getting attendance records
-        nm.in.addItem("number","5");
-        //nm.execute();
-        for(int i=0;i<5;i++){
+        SharedPreferences record=getSharedPreferences("record",MODE_PRIVATE);
+        int N=record.getInt("number",0);
+        for(int i=0;i<N;i++){
             LinearLayout tmpLayout=new LinearLayout(this);
             tmpLayout.setOrientation(LinearLayout.HORIZONTAL);
             tmpLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
             times[i]=new TextView(this);
-            times[i].setText("times"+i);
+            times[i].setText(record.getString("time"+i,"null"));
             times[i].setGravity(Gravity.START);
             times[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,1));
             events[i]=new TextView(this);
-            events[i].setText("events"+i);
+            events[i].setText(record.getString("event"+i,"null"));
             events[i].setGravity(Gravity.END);
             events[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,1));
             tmpLayout.addView(times[i]);

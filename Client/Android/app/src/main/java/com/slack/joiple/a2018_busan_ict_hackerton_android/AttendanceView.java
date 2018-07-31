@@ -25,19 +25,19 @@ public class AttendanceView extends AppCompatActivity {
         super.onCreate(saveInstanceBundle);
         this.setContentView(R.layout.activity_attendence_view);
         resultLayout = findViewById(R.id.resultLayout);
-        NetworkManager nm = new NetworkManager(getString(R.string.serverURL), "post");//TODO set proper action
+        SharedPreferences rec=getSharedPreferences("record",MODE_PRIVATE);
         //nm.execute();
-        int num = Integer.parseInt(nm.out.getItem("number"));
+        int num = rec.getInt("number",0);
         for (int i = 0; i < num; i++) {
             LinearLayout tmpLayout = new LinearLayout(AttendanceView.this);
             tmpLayout.setOrientation(LinearLayout.HORIZONTAL);
             tmpLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
             TextView times = new TextView(AttendanceView.this);
-            times.setText(nm.out.getItem("date" + i) + " " + nm.out.getItem("time" + i));
+            times.setText(rec.getString("time"+i,"null"));
             times.setGravity(Gravity.START);
             times.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
             TextView events = new TextView(AttendanceView.this);
-            events.setText(nm.out.getItem("event" + i));
+            events.setText(rec.getString("event"+i,"null"));
             events.setGravity(Gravity.END);
             events.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
             tmpLayout.addView(times);

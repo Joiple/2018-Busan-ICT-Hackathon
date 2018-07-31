@@ -61,18 +61,6 @@ public class SignUp extends AppCompatActivity {
                 editor.putBoolean("isUsing",true);
                 editor.commit();
                 String result="null";
-                NetworkManager nm=new NetworkManager(getString(R.string.serverURL),"post");
-                
-                nm.in.addItem("id",id);
-                nm.in.addItem("password",password);
-                nm.in.addItem("name",name);
-                nm.in.addItem("birthday",birth);
-                nm.in.addItem("email",email);
-                nm.in.addItem("wage",wage);
-                nm.in.addItem("phone_number",phone);
-                nm.in.addItem("company","");
-                nm.execute();
-                Log.d("result",nm.out.map.toString());
                 o=new Intent(SignUp.this,MainActivityDrawer.class);
                 startActivity(o);
                 finish();
