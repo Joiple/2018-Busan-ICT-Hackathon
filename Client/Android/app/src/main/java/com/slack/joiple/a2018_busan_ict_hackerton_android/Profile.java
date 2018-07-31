@@ -126,7 +126,7 @@ public class Profile extends AppCompatActivity {// information : id password nam
         logofont.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
-                o=new Intent(Profile.this,MainActivity.class);
+                o=new Intent(Profile.this,MainActivityDrawer.class);
                 startActivityForResult(o,0);
                 setResult(RESULT_OK);
                 finish();

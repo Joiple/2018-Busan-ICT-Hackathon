@@ -98,7 +98,7 @@ public class CompanyProfile extends AppCompatActivity {
         logofont.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
-                o=new Intent(CompanyProfile.this,MainActivity.class);
+                o=new Intent(CompanyProfile.this,MainActivityDrawer.class);
                 startActivityForResult(o,0);
                 setResult(RESULT_OK);
                 finish();

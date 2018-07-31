@@ -58,7 +58,7 @@ public class SignIn extends AppCompatActivity {
                     editor.putString("id",idEdit.getText().toString());
                     editor.putString("pass",passEdit.getText().toString());
                     editor.commit();
-                    o=new Intent(SignIn.this,MainActivity.class);
+                    o=new Intent(SignIn.this,MainActivityDrawer.class);
                     startActivity(o);
                     setResult(RESULT_OK);
                     finish();

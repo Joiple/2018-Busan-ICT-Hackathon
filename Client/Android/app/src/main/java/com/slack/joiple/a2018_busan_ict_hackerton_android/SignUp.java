@@ -73,7 +73,7 @@ public class SignUp extends AppCompatActivity {
                 nm.in.addItem("company","");
                 nm.execute();
                 Log.d("result",nm.out.map.toString());
-                o=new Intent(SignUp.this,MainActivity.class);
+                o=new Intent(SignUp.this,MainActivityDrawer.class);
                 startActivity(o);
                 finish();
             }

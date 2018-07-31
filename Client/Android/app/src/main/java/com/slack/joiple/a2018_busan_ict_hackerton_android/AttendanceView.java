@@ -67,7 +67,7 @@ public class AttendanceView extends AppCompatActivity {
         logofont.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick (View view){
-                o=new Intent(AttendanceView.this,MainActivity.class);
+                o=new Intent(AttendanceView.this,MainActivityDrawer.class);
                 startActivityForResult(o,0);
                 setResult(RESULT_OK);
                 finish();

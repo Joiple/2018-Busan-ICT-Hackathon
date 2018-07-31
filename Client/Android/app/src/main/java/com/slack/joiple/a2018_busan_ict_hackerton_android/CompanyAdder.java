@@ -93,7 +93,7 @@ public class CompanyAdder extends AppCompatActivity {
         logofont.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                o=new Intent(CompanyAdder.this,MainActivity.class);
+                o=new Intent(CompanyAdder.this,MainActivityDrawer.class);
                 startActivityForResult(o,0);
                 setResult(RESULT_OK);
                 finish();
