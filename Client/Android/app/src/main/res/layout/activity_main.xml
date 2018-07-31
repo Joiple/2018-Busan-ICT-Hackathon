@@ -131,25 +131,25 @@
                 <ImageView
                     android:id="@+id/imageView5"
                     android:layout_width="0dp"
-                    android:layout_height="124dp"
-                    android:scaleType="centerInside"
+                    android:layout_height="119dp"
+                    android:scaleType="fitCenter"
                     android:visibility="visible"
                     app:layout_constraintBottom_toTopOf="@+id/calinder"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/profile" />
+                    app:srcCompat="@drawable/profile3" />
 
                 <ImageView
                     android:id="@+id/calinder"
                     android:layout_width="387dp"
-                    android:layout_height="333dp"
+                    android:layout_height="336dp"
                     android:visibility="visible"
                     app:layout_constraintBottom_toTopOf="@+id/imageView6"
                     app:layout_constraintDimensionRatio="1:1"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:srcCompat="@drawable/august" />
+                    app:srcCompat="@drawable/august2" />
 
                 <ImageView
                     android:id="@+id/imageView6"
@@ -159,8 +159,10 @@
                     android:scaleType="fitCenter"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintDimensionRatio="h,1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent"
-                    app:srcCompat="@drawable/money" />
+                    app:srcCompat="@drawable/money1" />
 
 
             </android.support.constraint.ConstraintLayout>

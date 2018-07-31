@@ -95,6 +95,13 @@ public class MainActivityDrawer extends AppCompatActivity
                 finish();
             }
         });
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((DrawerLayout) findViewById(R.id.drawer_layout)).openDrawer(GravityCompat.START);
+            }
+        });
+
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +136,7 @@ public class MainActivityDrawer extends AppCompatActivity
                 startActivityForResult(o, 0);
             }
         });
+
         SharedPreferences spec=getSharedPreferences("spec",MODE_PRIVATE);
         SharedPreferences.Editor editor=spec.edit();
         if(spec.getInt("number",-1)==-1) {
@@ -220,6 +228,7 @@ public class MainActivityDrawer extends AppCompatActivity
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
 
         return true;
     }
