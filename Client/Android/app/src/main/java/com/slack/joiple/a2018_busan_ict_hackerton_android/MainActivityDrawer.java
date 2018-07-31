@@ -29,12 +29,13 @@ public class MainActivityDrawer extends AppCompatActivity
     Button register;
     ImageButton option,start,end,status,logout,menu,logofont;
     LinearLayout attLayout;
-    TextView[] times,events;
-    SharedPreferences user,pref,settings;
+    TextView[] times, events;
+    SharedPreferences user, pref, settings;
     SharedPreferences.Editor editor;
     LinearLayout holder;
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,15 +70,15 @@ public class MainActivityDrawer extends AppCompatActivity
         for(int i=0;i<N;i++){
             LinearLayout tmpLayout=new LinearLayout(this);
             tmpLayout.setOrientation(LinearLayout.HORIZONTAL);
-            tmpLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-            times[i]=new TextView(this);
-            times[i].setText(record.getString("time"+i,"null"));
+            tmpLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+            times[i] = new TextView(this);
+            times[i].setText(record.getString("time" + i, "null"));
             times[i].setGravity(Gravity.START);
-            times[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,1));
-            events[i]=new TextView(this);
-            events[i].setText(record.getString("event"+i,"null"));
+            times[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+            events[i] = new TextView(this);
+            events[i].setText(record.getString("event" + i, "null"));
             events[i].setGravity(Gravity.END);
-            events[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT,1));
+            events[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
             tmpLayout.addView(times[i]);
             tmpLayout.addView(events[i]);
             attLayout.addView(tmpLayout);
@@ -85,18 +86,18 @@ public class MainActivityDrawer extends AppCompatActivity
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                o=new Intent(MainActivityDrawer.this,CompanyChanger.class);
-                startActivityForResult(o,0);
+                o = new Intent(MainActivityDrawer.this, CompanyChanger.class);
+                startActivityForResult(o, 0);
             }
         });
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                editor= user.edit();
-                editor.putBoolean("isUsing",false);
+                editor = user.edit();
+                editor.putBoolean("isUsing", false);
                 editor.commit();
-                o=new Intent(MainActivityDrawer.this,SignIn.class);
+                o = new Intent(MainActivityDrawer.this, SignIn.class);
                 startActivity(o);
                 finish();
             }
@@ -105,11 +106,11 @@ public class MainActivityDrawer extends AppCompatActivity
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(settings.getBoolean("mode",true)){
-                    o=new Intent(MainActivityDrawer.this,QrReader.class);
+                if (settings.getBoolean("mode", true)) {
+                    o = new Intent(MainActivityDrawer.this, QrReader.class);
                     o.setAction("start");
-                }else{
-                    o=new Intent(MainActivityDrawer.this,NfcTagging.class);
+                } else {
+                    o = new Intent(MainActivityDrawer.this, NfcTagging.class);
                     o.setAction("start");
                 }
                 startActivity(o);
@@ -118,11 +119,11 @@ public class MainActivityDrawer extends AppCompatActivity
         end.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(settings.getBoolean("mode",true)){
-                    o=new Intent(MainActivityDrawer.this,QrReader.class);
+                if (settings.getBoolean("mode", true)) {
+                    o = new Intent(MainActivityDrawer.this, QrReader.class);
                     o.setAction("end");
-                }else{
-                    o=new Intent(MainActivityDrawer.this,NfcTagging.class);
+                } else {
+                    o = new Intent(MainActivityDrawer.this, NfcTagging.class);
                     o.setAction("end");
                 }
                 startActivity(o);
@@ -131,8 +132,8 @@ public class MainActivityDrawer extends AppCompatActivity
         option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                o=new Intent(MainActivityDrawer.this,Option.class);
-                startActivityForResult(o,0);
+                o = new Intent(MainActivityDrawer.this, Option.class);
+                startActivityForResult(o, 0);
             }
         });
         SharedPreferences spec=getSharedPreferences("spec",MODE_PRIVATE);
@@ -167,30 +168,29 @@ public class MainActivityDrawer extends AppCompatActivity
             long tempTime = System.currentTimeMillis();
             long intervalTime = tempTime - backPressedTime;
 
-            if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime)
-            {
+            if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
                 super.onBackPressed();
-            }
-            else
-            {
+            } else {
                 backPressedTime = tempTime;
                 Toast.makeText(getApplicationContext(), "종료하실려면 한번더 뒤로가기를 누르세요.", Toast.LENGTH_SHORT).show();
             }
         }
     }
+
     @Override
-    protected void onActivityResult(int request,int result,Intent data){
-        if(result==RESULT_CANCELED)return;
-        String action=data.getAction();
-        if(action.equals("logout")){
-            o=new Intent(MainActivityDrawer.this,SignIn.class);
+    protected void onActivityResult(int request, int result, Intent data) {
+        if (result == RESULT_CANCELED) return;
+        String action = data.getAction();
+        if (action.equals("logout")) {
+            o = new Intent(MainActivityDrawer.this, SignIn.class);
             startActivity(o);
             finish();
-        }else if(action.equals("changeComp")){
-            loadItems();
-        }else if(action.equals("end")){//TODO check why I set this in else if
+        } else if (action.equals("changeComp")) {
+
+        } else if (action.equals("end")) {//TODO check why I set this in else if
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
