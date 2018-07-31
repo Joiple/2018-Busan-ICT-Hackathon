@@ -86,17 +86,6 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/liecenseBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colortrans"
-        android:text="Button"
-        android:textColor="#FFFFFFFF"
-        tools:layout_editor_absoluteX="30dp"
-        tools:layout_editor_absoluteY="65dp"
-        tools:ignore="MissingConstraints" />
-
-    <Button
         android:id="@+id/activityBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -118,13 +107,39 @@
         tools:layout_editor_absoluteY="388dp"
         tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="337dp"
-        android:layout_height="81dp"
-        android:text="컴퓨터활용능력"
-        tools:layout_editor_absoluteX="22dp"
-        tools:layout_editor_absoluteY="117dp"
-        tools:ignore="MissingConstraints" />
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/lisenceLayout"
+        android:layout_width="357dp"
+        android:layout_height="159dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="72dp">
+
+        <Button
+            android:id="@+id/liecenseBtn"
+            android:layout_width="347dp"
+            android:layout_height="149dp"
+            android:background="@color/colortrans"
+            android:text="Button"
+            android:textColor="@color/colortrans"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="1dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="345dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="컴퓨터활용능력"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="41dp" />
+    </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

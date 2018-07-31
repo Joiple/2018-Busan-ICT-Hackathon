@@ -53,4 +53,10 @@
     <string name="title_activity_carrier_drawer">CarrierActivityDrawer</string>
     <string name="title_activity_wage_drawer">WageActivityDrawer</string>
     <string name="title_activity_profile_drawer">ProfileActivityDrawer</string>
+    <string name="Import" translatable="false">출퇴근관리</string>
+    <string name="Gallery" translatable="false">자격증관리</string>
+    <string name="Slideshow" translatable="false">활동내역</string>
+    <string name="Tools" translatable="false">기타근무기록</string>
+    <string name="Share" translatable="false">임금내역</string>
+    <string name="Send" translatable="false">회사정보수정</string>
 </resources>
