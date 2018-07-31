@@ -50,4 +50,7 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_carrier_drawer">CarrierActivityDrawer</string>
+    <string name="title_activity_wage_drawer">WageActivityDrawer</string>
+    <string name="title_activity_profile_drawer">ProfileActivityDrawer</string>
 </resources>

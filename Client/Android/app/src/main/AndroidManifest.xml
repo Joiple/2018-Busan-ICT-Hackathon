@@ -19,16 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".QrReader"></activity>
-        <activity android:name=".NfcTagging"></activity>
-        <activity android:name=".AttendanceView"></activity>
-        <activity android:name=".CompanyChanger"></activity>
-        <activity android:name=".Option"></activity>
-        <activity android:name=".Profile"></activity>
-        <activity android:name=".SignIn"></activity>
-        <activity android:name=".SignUp"></activity>
-        <activity android:name=".CompanyAdder"></activity>
-        <activity android:name=".CompanyProfile"></activity>
+        <activity android:name=".QrReader" />
+        <activity android:name=".NfcTagging" />
+        <activity android:name=".AttendanceView" />
+        <activity android:name=".CompanyChanger" />
+        <activity android:name=".Option" />
+        <activity android:name=".Profile" />
+        <activity android:name=".SignIn" />
+        <activity android:name=".SignUp" />
+        <activity android:name=".CompanyAdder" />
+        <activity android:name=".CompanyProfile" />
 
         <service
             android:name=".NfcService"
@@ -48,6 +48,18 @@
         <activity
             android:name=".MainActivityDrawer"
             android:label="@string/title_activity_main_drawer"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".CarrierActivityDrawer"
+            android:label="@string/title_activity_carrier_drawer"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".WageActivityDrawer"
+            android:label="@string/title_activity_wage_drawer"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ProfileActivityDrawer"
+            android:label="@string/title_activity_profile_drawer"
             android:theme="@style/AppTheme"></activity>
     </application>
 
