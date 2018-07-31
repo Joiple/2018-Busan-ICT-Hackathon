@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.slack.joiple.a2018_busan_ict_hackerton_android">
-	<uses-permission android:name="android.permission.NFC"/>
-	<uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -10,59 +12,43 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-		<activity android:name=".Initial">
-			<intent-filter>
-				<action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Initial">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-				<category android:name="android.intent.category.LAUNCHER" />
-			</intent-filter>
-		</activity>
-        <activity android:name=".QrReader">
-		
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".NfcTagging">
-		
-        </activity>
-		<activity android:name=".AttendanceView">
+        <activity android:name=".QrReader"></activity>
+        <activity android:name=".NfcTagging"></activity>
+        <activity android:name=".AttendanceView"></activity>
+        <activity android:name=".CompanyChanger"></activity>
+        <activity android:name=".Option"></activity>
+        <activity android:name=".Profile"></activity>
+        <activity android:name=".SignIn"></activity>
+        <activity android:name=".SignUp"></activity>
+        <activity android:name=".CompanyAdder"></activity>
+        <activity android:name=".CompanyProfile"></activity>
 
-		</activity>
-		<activity android:name=".CompanyChanger">
+        <service
+            android:name=".NfcService"
+            android:exported="true"
+            android:permission="android.permission.Bind_NFC_SERVICE">
+            <intent-filter>
+                <action android:name="android.intent.action.HOST_APDU_SERVICE" />
 
-		</activity>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
 
-		<activity android:name=".MainActivity">
+            <meta-data
+                android:name="android.nfc.cardemulation.host_apdu_service"
+                android:resource="@xml/aid_list" />
+        </service>
 
-		</activity>
-
-		<activity android:name=".Option">
-
-		</activity>
-
-		<activity android:name=".Profile">
-
-		</activity>
-		<activity android:name=".SignIn">
-
-		</activity>
-		<activity android:name=".SignUp">
-
-		</activity>
-		<activity android:name=".CompanyAdder">
-
-		</activity>
-		<activity android:name=".CompanyProfile">
-
-		</activity>
-		<service android:name=".NfcService"
-			android:exported="true"
-			android:permission="android.permission.Bind_NFC_SERVICE">
-			<intent-filter>
-				<action android:name="android.intent.action.HOST_APDU_SERVICE"/>
-				<category android:name="android.intent.category.DEFAULT"/>
-			</intent-filter>
-			<meta-data android:name="android.nfc.cardemulation.host_apdu_service"
-				android:resource="@xml/aid_list"/>
-		</service>
+        <activity
+            android:name=".MainActivityDrawer"
+            android:label="@string/title_activity_main_drawer"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

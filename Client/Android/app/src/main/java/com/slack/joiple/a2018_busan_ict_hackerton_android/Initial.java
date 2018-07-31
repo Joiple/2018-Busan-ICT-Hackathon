@@ -17,7 +17,7 @@ public class Initial extends AppCompatActivity {
         pref=getSharedPreferences("user",MODE_PRIVATE);
         boolean isUsing=pref.getBoolean("isUsing",false);
         if(isUsing){
-            o=new Intent(Initial.this,MainActivity.class);
+            o=new Intent(Initial.this,MainActivityDrawer.class);
             startActivity(o);
         }else{
             o=new Intent(Initial.this,SignIn.class);
