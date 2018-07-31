@@ -241,33 +241,19 @@ public class ProfileActivityDrawer extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_attend) {
-            o = new Intent(ProfileActivityDrawer.this, AttendanceView.class);
-            startActivity(o);  // Handle the camera action
-        } else if (id == R.id.nav_profile) {
-            o = new Intent(ProfileActivityDrawer.this, ProfileActivityDrawer.class);
-            startActivity(o);
+        if (id == R.id.nav_spec) {
 
-        } else if (id == R.id.nav_pay) {
-            o = new Intent(ProfileActivityDrawer.this, Pay.class);
-            startActivity(o);
-
-        } else if (id == R.id.nav_spec) {
-            o = new Intent(ProfileActivityDrawer.this, lisence.class);
-            startActivity(o);
 
         } else if (id == R.id.nav_act) {
-            o = new Intent(ProfileActivityDrawer.this, Active.class);
-            startActivity(o);
+
 
         } else if (id == R.id.nav_etc) {
-            o = new Intent(ProfileActivityDrawer.this, ect.class);
-            startActivity(o);
+
         }
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
     @Override

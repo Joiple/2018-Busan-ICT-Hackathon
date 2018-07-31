@@ -3,33 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_attend"
-            android:title="출퇴근 관리" />
-        <item
-            android:id="@+id/nav_profile"
-            android:title="프로필" />
-        <item
-            android:id="@+id/nav_pay"
-            android:title="임금 내역" />
-    </group>
 
     <item
-        android:title="스펙 관리">
+        android:title="알바장">
         <menu>
         <item
             android:id="@+id/nav_spec"
-            android:title="자격증 관리" />
-        <item
-            android:id="@+id/nav_act"
-            android:title="활동 내역" />
-        <item
-            android:id="@+id/nav_etc"
-            android:title="기타 근무기록"/>
-
+            android:title="dddddere" />
 
         </menu>
     </item>
+    <item
+        android:title="내 시급">
+        <menu>
+            <item
+                android:id="@+id/nav_act"
+                android:title="dfdqere"/>
 
+        </menu>
+    </item>
+    <item
+        android:title="현재까지 모은 돈">
+        <menu>
+            <item
+                android:id="@+id/nav_etc"
+                android:title="ddeqefdw"/>
+        </menu>
+    </item>
+    <item
+        android:title="이전 알바기록">
+        <menu>
+            <item
+                android:title="dddddddd"/>
+        </menu>
+    </item>
 </menu>
