@@ -29,22 +29,6 @@
         <activity android:name=".SignUp" />
         <activity android:name=".CompanyAdder" />
         <activity android:name=".CompanyProfile" />
-
-        <service
-            android:name=".NfcService"
-            android:exported="true"
-            android:permission="android.permission.Bind_NFC_SERVICE">
-            <intent-filter>
-                <action android:name="android.intent.action.HOST_APDU_SERVICE" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.nfc.cardemulation.host_apdu_service"
-                android:resource="@xml/aid_list" />
-        </service>
-
         <activity
             android:name=".MainActivityDrawer"
             android:label="@string/title_activity_main_drawer"

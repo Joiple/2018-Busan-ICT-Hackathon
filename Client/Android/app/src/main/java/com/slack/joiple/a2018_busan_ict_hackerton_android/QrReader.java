@@ -89,9 +89,7 @@ public class QrReader extends AppCompatActivity {
 
                 value=result.getContents();
                 //TODO send starting work data to server with type(g.getAction())
-                if(true) {//result
-                    Toast.makeText(QrReader.this,"success!", Toast.LENGTH_SHORT).show();
-                }
+                Toast.makeText(QrReader.this,"success!", Toast.LENGTH_SHORT).show();
                 SharedPreferences rec=getSharedPreferences("record",MODE_PRIVATE);
                 int num=rec.getInt("number",0);
                 SharedPreferences.Editor editor=rec.edit();
