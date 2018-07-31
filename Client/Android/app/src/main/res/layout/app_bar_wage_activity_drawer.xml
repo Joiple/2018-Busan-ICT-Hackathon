@@ -20,6 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_wage_activity_drawer" />
+    <include layout="@layout/activity_pay" />
 
 </android.support.design.widget.CoordinatorLayout>
